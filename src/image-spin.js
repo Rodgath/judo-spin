@@ -59,21 +59,12 @@ const handleMouseMove = (event) => {
   const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
   currentAngle = Math.floor(percentage * maxRotation);
   
-
   /* Adjust currentAngle to be within the range of 0 to 359 degrees, without negavtive numbers */
   currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
 
   console.log('currentAngle', currentAngle);
 
-  imagesToSpin.forEach(image => {
-    image.style.display = 'none';
-  });
-
-  const currImageIndex = Math.floor(currentAngle / anglePerImage) + 1;
-
-  const currImage = imageSpinBox.querySelector('img:nth-child(' + currImageIndex + ')');
-
-  currImage.style.display = 'block';
+  showImageForAngle(currentAngle);
 }
 
 /* Listen for mousedown events on the imageSpinBox element */
@@ -91,4 +82,21 @@ const calculateImageIndex = angle => {
       index = 0;
   }
   return index;
+}
+
+/* Show the image based on the current angle */
+const showImageForAngle = angle => {
+
+    /* get the index of the image to show based on the angle and total images */
+    const imageIndex = Math.floor(angle / anglePerImage) + 1;
+
+    /* Show the corresponding image and hide the others */
+    for (let i = 1; i <= totalImages; i++) {
+        const img = imageSpinBox.querySelector('img:nth-child(' + i + ')');
+        if (i === imageIndex) {
+            img.style.display = 'block';
+        } else {
+            img.style.display = 'none';
+        }
+    }
 }
