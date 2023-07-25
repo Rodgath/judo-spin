@@ -1,5 +1,8 @@
 
 
+/* Current image starts at 0 */
+const currImagePos = 0;
+
 /* Get the image box element */
 const imageSpinBox = document.querySelector('.image-spin-box');
 
