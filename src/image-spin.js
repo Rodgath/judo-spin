@@ -4,8 +4,8 @@
 const imageSpinBox = document.querySelector('.image-spin-box');
 
 /* Get all the images inside the spinbox element */
-const images = imageSpinBox.querySelectorAll('img');
-const totalImages = images.length;
+const imagesToSpin = imageSpinBox.querySelectorAll('img');
+const totalImages = imagesToSpin.length;
 
 /* Calculate the angle between each image */
 const anglePerImage = 360 / totalImages;
