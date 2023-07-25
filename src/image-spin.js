@@ -92,11 +92,7 @@ const showImageForAngle = angle => {
 
     /* Show the corresponding image and hide the others */
     for (let i = 1; i <= totalImages; i++) {
-        const img = imageSpinBox.querySelector('img:nth-child(' + i + ')');
-        if (i === imageIndex) {
-            img.style.display = 'block';
-        } else {
-            img.style.display = 'none';
-        }
+      const img = imageSpinBox.querySelector('img:nth-child(' + i + ')');
+      img.style.display = (i === imageIndex) ? 'block' : 'none';
     }
 }
