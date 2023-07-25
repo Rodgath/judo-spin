@@ -13,6 +13,9 @@ const totalImages = imagesToSpin.length;
 /* Calculate the angle between each image */
 const anglePerImage = 360 / totalImages;
 
+/* Set the initial angle to 0 */
+let currentAngle = currImagePos > 0 ? currImagePos * anglePerImage : 0;
+
 /* 
 TODO: 
 - Handle mousedown event
