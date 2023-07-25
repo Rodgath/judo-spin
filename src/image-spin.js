@@ -26,3 +26,69 @@ TODO:
 - Handle mousemove event
  */
 
+/* Handle mousedown event */
+const handleMouseDown = (event) => {
+
+  event.preventDefault();
+
+  console.trace('event', event);
+
+  /* Start motion */
+  motionStarted = true;
+
+  /* Get the index of the current visible image */
+  const currentIndex = calculateImageIndex(currentAngle);
+
+  console.log('currentIndex', currentIndex);
+
+  /* Calculate the initial angle based on the current visible image */
+  currentAngle = currentIndex * anglePerImage;
+
+  /* Listen for mousemove event */
+  document.addEventListener('mousemove', handleMouseMove);
+}
+
+/* Handle mousemove event */
+const handleMouseMove = (event) => {
+  console.trace('event', event);
+
+  /* Calculate the rotation angle based on mouse position */
+  const positionX = event.pageX - imageSpinBox.offsetLeft;
+  const width = imageSpinBox.offsetWidth;
+  const percentage = positionX / width;
+  const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
+  currentAngle = Math.floor(percentage * maxRotation);
+  
+
+  /* Adjust currentAngle to be within the range of 0 to 359 degrees, without negavtive numbers */
+  currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
+
+  console.log('currentAngle', currentAngle);
+
+  imagesToSpin.forEach(image => {
+    image.style.display = 'none';
+  });
+
+  const currImageIndex = Math.floor(currentAngle / anglePerImage) + 1;
+
+  const currImage = imageSpinBox.querySelector('img:nth-child(' + currImageIndex + ')');
+
+  currImage.style.display = 'block';
+}
+
+/* Listen for mousedown events on the imageSpinBox element */
+imageSpinBox.addEventListener('mousedown', handleMouseDown);
+
+
+/* Calculate the current image index based on the current angle */
+const calculateImageIndex = angle => {
+
+  let index = Math.floor(angle / anglePerImage);
+
+  if (index < 0) {
+      index = totalImages - 1;
+  } else if (index >= totalImages) {
+      index = 0;
+  }
+  return index;
+}
