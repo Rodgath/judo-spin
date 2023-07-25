@@ -16,6 +16,9 @@ const anglePerImage = 360 / totalImages;
 /* Set the initial angle to 0 */
 let currentAngle = currImagePos > 0 ? currImagePos * anglePerImage : 0;
 
+/* Flag to track if the motion should start */
+let motionStarted = false;
+
 /* 
 TODO: 
 - Handle mousedown event
