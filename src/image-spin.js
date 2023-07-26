@@ -48,6 +48,15 @@ const handleMouseDown = (event) => {
   document.addEventListener('mousemove', handleMouseMove);
 }
 
+/* Handle mouseup event */
+const handleMouseUp = () => {
+  motionStarted = false;
+  document.removeEventListener('mousemove', handleMouseMove);
+}
+
+/* Add event listeners for mouseup and touchend events */
+document.addEventListener('mouseup', handleMouseUp);
+
 /* Handle mousemove event */
 const handleMouseMove = (event) => {
   console.trace('event', event);
