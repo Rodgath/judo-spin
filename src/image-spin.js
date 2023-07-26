@@ -20,7 +20,7 @@ function imageSpin(element, options) {
   /* Calculate the angle between each image */
   const anglePerImage = 360 / totalImages;
 
-  /* Set the initial angle to 0 */
+  /* Set the initial angle to 0 or based on current mage*/
   let currentAngle = currImagePos > 0 ? currImagePos * anglePerImage : 0;
 
   /* Flag to track if the motion should start */
@@ -99,21 +99,23 @@ function imageSpin(element, options) {
 
   /* Handle mousemove event */
   const handleMouseMove = (event) => {
-    console.trace('event', event);
+    if (motionStarted) {
+      console.trace('event', event);
 
-    /* Calculate the rotation angle based on mouse position */
-    const positionX = event.pageX - imageSpinBox.offsetLeft;
-    const width = imageSpinBox.offsetWidth;
-    const percentage = positionX / width;
-    const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
-    currentAngle = Math.floor(percentage * maxRotation);
-    
-    /* Adjust currentAngle to be within the range of 0 to 359 degrees, without negavtive numbers */
-    currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
+      /* Calculate the rotation angle based on mouse position */
+      const positionX = event.pageX - imageSpinBox.offsetLeft;
+      const width = imageSpinBox.offsetWidth;
+      const percentage = positionX / width;
+      const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
+      currentAngle = Math.floor(percentage * maxRotation);
+      
+      /* Adjust currentAngle to be within the range of 0 to 359 degrees, without negavtive numbers */
+      currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
 
-    console.log('currentAngle', currentAngle);
+      console.log('currentAngle', currentAngle);
 
-    showImageForAngle(currentAngle);
+      showImageForAngle(currentAngle);
+    }
   }
 
   /* Listen for mousedown events on the overlayElement element */
