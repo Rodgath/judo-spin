@@ -110,11 +110,7 @@ function imageSpin(element, options) {
       }
       
       /* Calculate the rotation angle based on mouse position */
-      // const positionX = event.pageX - imageSpinBox.offsetLeft;
-      // const width = imageSpinBox.offsetWidth;
-      // const percentage = positionX / width;
       const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
-      // currentAngle = Math.floor(percentage * maxRotation);
       currentAngle = currImagePos * anglePerImage;
       
       /* Adjust currentAngle to be within the range of 0 to 359 degrees, without negavtive numbers */
@@ -163,22 +159,23 @@ function imageSpin(element, options) {
   let prevX = null;
   let prevY = null;
 
+  /* Mouse sensitivity factor (adjust this to set sensitivity) */
+  const sensitivity = 1; // Increase for higher sensitivity, decrease for lower sensitivity
+
   /* Detect the direction */
   function detectDirection(currentX, currentY) {
     let direction;
     if (prevX !== null && prevY !== null) {
       const deltaX = currentX - prevX;
 
-      if (deltaX > 0) {
-        console.log('Right');
+      if (deltaX > sensitivity) {
         direction = 'right';
-      } else if (deltaX < 0) {
-        console.log('Left');
+      } else if (deltaX < -sensitivity) {
         direction = 'left';
       }
     }
 
-    // Update the previous position to the current position
+    /* Update the previous position to the current position */
     prevX = currentX;
     prevY = currentY;
 
