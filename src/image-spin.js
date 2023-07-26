@@ -101,13 +101,7 @@ function imageSpin(element, options) {
 
       const dir = detectDirection(event.clientX, event.clientY);
 
-      if (dir === 'right') {
-        currImagePos++;
-      }
-
-      if (dir === 'left') {
-        currImagePos--;
-      }
+      dir === 'right' ? currImagePos++ : dir === 'left' ? currImagePos-- : null;
       
       /* Calculate the rotation angle based on mouse position */
       const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
