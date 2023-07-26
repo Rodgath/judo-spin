@@ -123,4 +123,6 @@ function imageSpin(element, options) {
         img.style.display = (i === imageIndex) ? 'block' : 'none';
       }
   }
+
+  showImageForAngle(currentAngle);
 }
