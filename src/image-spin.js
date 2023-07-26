@@ -49,7 +49,6 @@ function imageSpin(element, options) {
 
   /* Set the attributes and styles for the overlay element */
   (function(overlayElement) {
-    
     overlayElement.className = 'image-spin-overlay';
     overlayElement.style.position = 'absolute';
     overlayElement.style.width = '100%';
@@ -61,9 +60,15 @@ function imageSpin(element, options) {
 
   })(overlayElement);
 
-  /* Prepare image spin box container */
+  /* Set image spin box attributes and styles */
   (function(imageSpinBox) {
     imageSpinBox.classList.add('image-spin-box-container');
+    imageSpinBox.style.position = 'relative';
+    imageSpinBox.style.width = '100%';
+    imageSpinBox.style.height = 'auto';
+    imageSpinBox.style.overflow = 'hidden';
+  })(imageSpinBox);
+  
   })(imageSpinBox);
 
   /* Handle mousedown event */
