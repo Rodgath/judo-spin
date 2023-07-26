@@ -86,14 +86,45 @@ function imageSpin(element, options) {
     overlayElement.addEventListener('mousemove', handleMouseMove);
   }
 
+  /* Handle touchstart event */
+  const handleTouchStart = (event) => {
+
+    event.preventDefault();
+    
+    /* Start motion */
+    motionStarted = true;
+
+    /* Get the index of the current visible image */
+    const currentIndex = calculateImageIndex(currentAngle);
+
+    console.log('currentIndex', currentIndex);
+
+    /* Calculate the initial angle based on the current visible image */
+    currentAngle = currentIndex * anglePerImage;
+
+    /* Listen for touchmove event */
+    overlayElement.addEventListener('touchmove', handleTouchMove);
+  }
+
+  /* Listen for mousedown and touchstart events on the overlayElement element */
+  overlayElement.addEventListener('mousedown', handleMouseDown);
+  overlayElement.addEventListener('touchstart', handleTouchStart);
+
   /* Handle mouseup event */
   const handleMouseUp = () => {
     motionStarted = false;
     overlayElement.removeEventListener('mousemove', handleMouseMove);
   }
 
+  /* Handle touchend event */
+  const handleTouchEnd = () => {
+    motionStarted = false;
+    overlayElement.removeEventListener('touchmove', handleTouchMove);
+  }
+
   /* Add event listeners for mouseup and touchend events */
   overlayElement.addEventListener('mouseup', handleMouseUp);
+  overlayElement.addEventListener('touchend', handleTouchEnd);
 
   /* Handle mousemove event */
   const handleMouseMove = (event) => {
@@ -102,7 +133,7 @@ function imageSpin(element, options) {
       const dir = detectDirection(event.clientX, event.clientY);
 
       dir === 'right' ? currImagePos++ : dir === 'left' ? currImagePos-- : null;
-      
+
       /* Calculate the rotation angle based on mouse position */
       const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
       currentAngle = currImagePos * anglePerImage;
@@ -110,14 +141,28 @@ function imageSpin(element, options) {
       /* Adjust currentAngle to be within the range of 0 to 359 degrees, without negavtive numbers */
       currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
 
-      console.log('currentAngle', currentAngle);
-
       showImageForAngle(currentAngle);
     }
   }
 
-  /* Listen for mousedown events on the overlayElement element */
-  overlayElement.addEventListener('mousedown', handleMouseDown);
+  /* Handle touchmove event */
+  const handleTouchMove = (event) => {
+    if (motionStarted) {
+
+      const dir = detectDirection(event.touches[0].clientX, event.touches[0].clientY);
+
+      dir === 'right' ? currImagePos++ : dir === 'left' ? currImagePos-- : null;
+
+      /* Calculate the rotation angle based on mouse position */
+      const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
+      currentAngle = currImagePos * anglePerImage;
+      
+      /* Adjust currentAngle to be within the range of 0 to 359 degrees, without negavtive numbers */
+      currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
+
+      showImageForAngle(currentAngle);
+    }
+  }
 
 
   /* Calculate the current image index based on the current angle */
