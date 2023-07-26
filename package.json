@@ -2,7 +2,7 @@
   "name": "image-spin",
   "version": "1.0.0",
   "description": "360° degrees image spinner using JavaScript.",
-  "main": "Topics",
+  "main": "./dist/image-spin-360.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +14,9 @@
     "image-spin",
     "rotate-360",
     "spin-360",
-    "360-degrees"
+    "360-degrees",
+    "360",
+    "rotate"
   ],
   "author": {
     "name": "Rodgath",
@@ -23,16 +25,16 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Rodgath/image-spin/issues"
+    "url": "https://github.com/Rodgath/image-spin/issues",
+    "email": "contact@rodgath.com"
   },
-  "homepage": "https://github.com/Rodgath/image-spin#readme",
+  "homepage": "https://github.com/Rodgath/image-spin",
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-uglify": "^3.0.2",
-    "uglify-js": "^3.17.4"
+    "gulp-uglify": "^3.0.2"
   }
 }
