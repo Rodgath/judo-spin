@@ -53,13 +53,8 @@ function imageSpin(element, options) {
     imageSpinBox.appendChild(overlayElement);
 
     /* Add event listeners to change cursor on hover and reset on mouseout */
-    overlayElement.addEventListener('mouseover', () => {
-      overlayElement.style.cursor = 'e-resize';
-    });
-
-    overlayElement.addEventListener('mouseout', () => {
-      overlayElement.style.cursor = 'auto';
-    });
+    overlayElement.addEventListener('mouseover', () => overlayElement.style.cursor = 'e-resize');
+    overlayElement.addEventListener('mouseout', () => overlayElement.style.cursor = 'auto');
 
   })(overlayElement);
 
