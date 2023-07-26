@@ -98,6 +98,8 @@ function imageSpin(element, options) {
   /* Handle mousemove event */
   const handleMouseMove = (event) => {
     if (motionStarted) {
+
+      const dir = detectDirection(event.clientX, event.clientY);
       
       /* Calculate the rotation angle based on mouse position */
       const positionX = event.pageX - imageSpinBox.offsetLeft;
@@ -147,4 +149,30 @@ function imageSpin(element, options) {
   
   /* Show the preferred/intended image by default */
   showImageForAngle(currentAngle);
+
+  /* Store the previous position of the mouse */
+  let prevX = null;
+  let prevY = null;
+
+  /* Detect the direction */
+  function detectDirection(currentX, currentY) {
+    let direction;
+    if (prevX !== null && prevY !== null) {
+      const deltaX = currentX - prevX;
+
+      if (deltaX > 0) {
+        console.log('Right');
+        direction = 'right';
+      } else if (deltaX < 0) {
+        console.log('Left');
+        direction = 'left';
+      }
+    }
+
+    // Update the previous position to the current position
+    prevX = currentX;
+    prevY = currentY;
+
+    return direction;
+  }
 }
