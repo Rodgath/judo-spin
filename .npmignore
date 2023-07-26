@@ -1,8 +1,6 @@
-# Ignore node modules
-node_modules
+# ignore everything (blacklist all) in the root directory
+**
 
-# Ignore demo
-demo
-
-# Ignore .vscode
-.vscode
+# except whitelist:
+# "dist"
+!dist/**
