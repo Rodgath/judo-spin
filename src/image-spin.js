@@ -70,9 +70,7 @@ function imageSpin(element, options) {
   const handleMouseDown = (event) => {
 
     event.preventDefault();
-
-    console.trace('event', event);
-
+    
     /* Start motion */
     motionStarted = true;
 
@@ -100,8 +98,7 @@ function imageSpin(element, options) {
   /* Handle mousemove event */
   const handleMouseMove = (event) => {
     if (motionStarted) {
-      console.trace('event', event);
-
+      
       /* Calculate the rotation angle based on mouse position */
       const positionX = event.pageX - imageSpinBox.offsetLeft;
       const width = imageSpinBox.offsetWidth;
