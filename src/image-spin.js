@@ -69,6 +69,14 @@ function imageSpin(element, options) {
     imageSpinBox.style.overflow = 'hidden';
   })(imageSpinBox);
   
+  /* Set images' attributes and styles */
+  (function(imageSpinBox) {
+    const images = imageSpinBox.getElementsByTagName('img');
+
+    for (let i = 0; i < images.length; i++) {
+      const image = images[i];
+      image.style.width = '100%';
+    }
   })(imageSpinBox);
 
   /* Handle mousedown event */
@@ -168,8 +176,7 @@ function imageSpin(element, options) {
       showImageForAngle(currentAngle);
     }
   }
-
-
+  
   /* Calculate the current image index based on the current angle */
   const calculateImageIndex = angle => {
 
