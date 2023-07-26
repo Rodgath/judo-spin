@@ -26,8 +26,8 @@ function imageSpin(element, options) {
   /* Flag to track if the motion should start */
   let motionStarted = false;
 
-  // Get the overlay element
-  const overlayElement = document.querySelector('.overlay');
+  /* Create the overlay div element */
+  const overlayElement = document.createElement('div');
 
   /* 
   TODO: 
@@ -46,6 +46,20 @@ function imageSpin(element, options) {
       return 1;
     }
   }
+
+  /* Set the attributes and styles for the overlay element */
+  (function(overlayElement) {
+    
+    overlayElement.className = 'image-spin-overlay';
+    overlayElement.style.position = 'absolute';
+    overlayElement.style.width = '100%';
+    overlayElement.style.height = '100%';
+    overlayElement.style.top = '0';
+    overlayElement.style.left = '0';
+    overlayElement.style.zIndex = '1';
+    imageSpinBox.appendChild(overlayElement);
+
+  })(overlayElement);
 
   /* Prepare image spin box container */
   (function(imageSpinBox) {
