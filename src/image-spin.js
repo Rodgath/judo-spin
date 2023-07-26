@@ -134,8 +134,8 @@ function imageSpin(element, options) {
   }
 
   /* Add event listeners for mouseup and touchend events */
-  overlayElement.addEventListener('mouseup', handleMouseUp);
-  overlayElement.addEventListener('touchend', handleTouchEnd);
+  document.addEventListener('mouseup', handleMouseUp);
+  document.addEventListener('touchend', handleTouchEnd);
 
   /* Handle mousemove event */
   const handleMouseMove = event => handleMovement(event);
