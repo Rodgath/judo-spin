@@ -1,5 +1,5 @@
 {
-  "name": "image-spin",
+  "name": "image-spin-360",
   "version": "1.0.0",
   "description": "360° degrees image spinner using JavaScript.",
   "main": "./dist/image-spin-360.min.js",
