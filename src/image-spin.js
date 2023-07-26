@@ -78,48 +78,35 @@ function imageSpin(element, options) {
   })(imageSpinBox);
 
   /* Handle mousedown event */
-  const handleMouseDown = (event) => {
-
-    event.preventDefault();
-    
-    /* Start motion */
-    motionStarted = true;
-
-    /* Get the index of the current visible image */
-    const currentIndex = calculateImageIndex(currentAngle);
-
-    console.log('currentIndex', currentIndex);
-
-    /* Calculate the initial angle based on the current visible image */
-    currentAngle = currentIndex * anglePerImage;
-
-    /* Listen for mousemove event */
-    overlayElement.addEventListener('mousemove', handleMouseMove);
-  }
+  const handleMouseDown = event => invokeMotion(event);
 
   /* Handle touchstart event */
-  const handleTouchStart = (event) => {
-
-    event.preventDefault();
-    
-    /* Start motion */
-    motionStarted = true;
-
-    /* Get the index of the current visible image */
-    const currentIndex = calculateImageIndex(currentAngle);
-
-    console.log('currentIndex', currentIndex);
-
-    /* Calculate the initial angle based on the current visible image */
-    currentAngle = currentIndex * anglePerImage;
-
-    /* Listen for touchmove event */
-    overlayElement.addEventListener('touchmove', handleTouchMove);
-  }
+  const handleTouchStart = event => invokeMotion(event);
 
   /* Listen for mousedown and touchstart events on the overlayElement element */
   overlayElement.addEventListener('mousedown', handleMouseDown);
   overlayElement.addEventListener('touchstart', handleTouchStart);
+
+  /* Invoke image spin motion based on mousemove and touchmove events */
+  const invokeMotion = event => {
+
+    event.preventDefault();
+
+    const _event = event.type === 'touchmove' ? 'touchmove' : 'mousemove';
+    const _listener = event.type === 'touchmove' ? handleTouchMove : handleMouseMove;
+    
+    /* Start motion */
+    motionStarted = true;
+
+    /* Get the index of the current visible image */
+    const currentIndex = calculateImageIndex(currentAngle);
+    
+    /* Calculate the initial angle based on the current visible image */
+    currentAngle = currentIndex * anglePerImage;
+
+    /* Listen for touchmove event */
+    overlayElement.addEventListener(_event, _listener);
+  }
 
   /* Handle mouseup event */
   const handleMouseUp = () => {
