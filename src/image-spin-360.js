@@ -1,5 +1,5 @@
 
-function imageSpin(element, options) {
+function imageSpin360(element, options) {
 
   var defaults = {
     currImg: 1,
