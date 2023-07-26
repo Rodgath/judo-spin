@@ -8,7 +8,7 @@ function imageSpin(element, options) {
   options = Object.assign({}, defaults, options);
     
   /* Current image starts at 0 */
-  const currImagePos = options.currImage - 1;
+  const currImagePos = convertCurrImageNumber(options.currImage) - 1;
 
   /* Get the image box element */
   const imageSpinBox = document.querySelector('.image-spin-box');
@@ -32,6 +32,17 @@ function imageSpin(element, options) {
   - Handle mouseup event
   - Handle mousemove event
   */
+
+  /* Convert a string to a positive number or its absolute value if negative */
+  function convertCurrImageNumber(str) {
+    const number = parseInt(str, 10); // Convert string to integer
+
+    if (!isNaN(number)) {
+      return Math.abs(number);
+    } else {
+      return 1;
+    }
+  }
 
   /* Handle mousedown event */
   const handleMouseDown = (event) => {
