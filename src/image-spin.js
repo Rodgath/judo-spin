@@ -48,7 +48,7 @@ function imageSpin(element, options) {
   }
 
   /* Prepare image spin box container */
-  (function() {
+  (function(imageSpinBox) {
     imageSpinBox.classList.add('image-spin-box-container');
   })(imageSpinBox);
 
