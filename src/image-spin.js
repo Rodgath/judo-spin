@@ -11,7 +11,7 @@ function imageSpin(element, options) {
   const currImagePos = convertCurrImageNumber(options.currImage) - 1;
 
   /* Get the image box element */
-  const imageSpinBox = document.querySelector('.image-spin-box');
+  const imageSpinBox = document.querySelector(element);
 
   /* Get all the images inside the spinbox element */
   const imagesToSpin = imageSpinBox.querySelectorAll('img');
