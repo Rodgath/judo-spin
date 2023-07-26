@@ -44,6 +44,11 @@ function imageSpin(element, options) {
     }
   }
 
+  /* Prepare image spin box container */
+  (function() {
+    imageSpinBox.classList.add('image-spin-box-container');
+  })(imageSpinBox);
+
   /* Handle mousedown event */
   const handleMouseDown = (event) => {
 

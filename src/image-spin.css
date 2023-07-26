@@ -1,9 +1,9 @@
-.image-spin-box {
+.image-spin-box-container {
   width: 100%;
   height: auto;
   overflow: hidden;
   position: relative;
 }
-.image-spin-box img {
+.image-spin-box-container img {
   width: 100%
 }
