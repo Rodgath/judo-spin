@@ -8,7 +8,7 @@ function imageSpin(element, options) {
   options = Object.assign({}, defaults, options);
     
   /* Current image starts at 0 */
-  const currImagePos = convertCurrImageNumber(options.currImage) - 1;
+  let currImagePos = convertCurrImageNumber(options.currImage) - 1;
 
   /* Get the image box element */
   const imageSpinBox = document.querySelector(element);
@@ -100,13 +100,22 @@ function imageSpin(element, options) {
     if (motionStarted) {
 
       const dir = detectDirection(event.clientX, event.clientY);
+
+      if (dir === 'right') {
+        currImagePos++;
+      }
+
+      if (dir === 'left') {
+        currImagePos--;
+      }
       
       /* Calculate the rotation angle based on mouse position */
-      const positionX = event.pageX - imageSpinBox.offsetLeft;
-      const width = imageSpinBox.offsetWidth;
-      const percentage = positionX / width;
+      // const positionX = event.pageX - imageSpinBox.offsetLeft;
+      // const width = imageSpinBox.offsetWidth;
+      // const percentage = positionX / width;
       const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
-      currentAngle = Math.floor(percentage * maxRotation);
+      // currentAngle = Math.floor(percentage * maxRotation);
+      currentAngle = currImagePos * anglePerImage;
       
       /* Adjust currentAngle to be within the range of 0 to 359 degrees, without negavtive numbers */
       currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
