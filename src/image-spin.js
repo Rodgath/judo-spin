@@ -7,7 +7,7 @@ function imageSpin(element, options) {
 
   options = Object.assign({}, defaults, options);
     
-  /* Current image starts at 0 */
+  /* Current image starts at 0 or based on options entry */
   let currImagePos = convertCurrImageNumber(options.currImage) - 1;
 
   /* Get the image box element */
@@ -28,14 +28,7 @@ function imageSpin(element, options) {
 
   /* Create the overlay div element */
   const overlayElement = document.createElement('div');
-
-  /* 
-  TODO: 
-  - Handle mousedown event
-  - Handle mouseup event
-  - Handle mousemove event
-  */
-
+  
   /* Convert a string to a positive number or its absolute value if negative */
   function convertCurrImageNumber(str) {
     const number = parseInt(str, 10); // Convert string to integer
@@ -140,29 +133,18 @@ function imageSpin(element, options) {
   overlayElement.addEventListener('touchend', handleTouchEnd);
 
   /* Handle mousemove event */
-  const handleMouseMove = (event) => {
-    if (motionStarted) {
-
-      const dir = detectDirection(event.clientX, event.clientY);
-
-      dir === 'right' ? currImagePos++ : dir === 'left' ? currImagePos-- : null;
-
-      /* Calculate the rotation angle based on mouse position */
-      const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
-      currentAngle = currImagePos * anglePerImage;
-      
-      /* Adjust currentAngle to be within the range of 0 to 359 degrees, without negavtive numbers */
-      currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
-
-      showImageForAngle(currentAngle);
-    }
-  }
+  const handleMouseMove = event => handleMovement(event);
 
   /* Handle touchmove event */
-  const handleTouchMove = (event) => {
-    if (motionStarted) {
+  const handleTouchMove = event => handleMovement(event);
 
-      const dir = detectDirection(event.touches[0].clientX, event.touches[0].clientY);
+  /* Handle image spin movement based on event */
+  const handleMovement = event => {
+    if (motionStarted) {
+      const _clientX = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
+      const _clientY = event.type === 'touchmove' ? event.touches[0].clientY : event.clientY;
+
+      const dir = detectDirection(_clientX, _clientY);
 
       dir === 'right' ? currImagePos++ : dir === 'left' ? currImagePos-- : null;
 
