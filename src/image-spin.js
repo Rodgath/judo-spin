@@ -26,6 +26,9 @@ function imageSpin(element, options) {
   /* Flag to track if the motion should start */
   let motionStarted = false;
 
+  // Get the overlay element
+  const overlayElement = document.querySelector('.overlay');
+
   /* 
   TODO: 
   - Handle mousedown event
@@ -68,17 +71,17 @@ function imageSpin(element, options) {
     currentAngle = currentIndex * anglePerImage;
 
     /* Listen for mousemove event */
-    document.addEventListener('mousemove', handleMouseMove);
+    overlayElement.addEventListener('mousemove', handleMouseMove);
   }
 
   /* Handle mouseup event */
   const handleMouseUp = () => {
     motionStarted = false;
-    document.removeEventListener('mousemove', handleMouseMove);
+    overlayElement.removeEventListener('mousemove', handleMouseMove);
   }
 
   /* Add event listeners for mouseup and touchend events */
-  document.addEventListener('mouseup', handleMouseUp);
+  overlayElement.addEventListener('mouseup', handleMouseUp);
 
   /* Handle mousemove event */
   const handleMouseMove = (event) => {
@@ -99,8 +102,8 @@ function imageSpin(element, options) {
     showImageForAngle(currentAngle);
   }
 
-  /* Listen for mousedown events on the imageSpinBox element */
-  imageSpinBox.addEventListener('mousedown', handleMouseDown);
+  /* Listen for mousedown events on the overlayElement element */
+  overlayElement.addEventListener('mousedown', handleMouseDown);
 
 
   /* Calculate the current image index based on the current angle */
@@ -128,6 +131,7 @@ function imageSpin(element, options) {
         img.style.display = (i === imageIndex) ? 'block' : 'none';
       }
   }
-
+  
+  /* Show the preferred/intended image by default */
   showImageForAngle(currentAngle);
 }
