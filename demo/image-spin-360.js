@@ -3,6 +3,7 @@ function imageSpin360(element, options) {
 
   var defaults = {
     currImg: 1,
+    images: []
   };
   
   /* Check if options argument is provided directly or in the data attribute */
@@ -29,7 +30,7 @@ function imageSpin360(element, options) {
   }
   
   /* Get all the images inside the spinbox element */
-  const imagesToSpin = imageSpinBox.querySelectorAll('img');
+  const imagesToSpin = getImagesToSpin();
   const totalImages = imagesToSpin.length;
 
   /* Calculate the angle between each image */
@@ -53,6 +54,31 @@ function imageSpin360(element, options) {
     } else {
       return 1;
     }
+  }
+
+  /* Get the images to spin */
+  function getImagesToSpin() {
+
+    let imagesToSpin;
+    
+    /* Check if ihe "images" property exists, is an array, and has items */
+    if (options.hasOwnProperty('images') && Array.isArray(options.images) && options.images.length > 0) {
+      
+      options.images.forEach(imageObj => {
+        const imgElement = document.createElement('img');
+        imgElement.src = imageObj.src;
+        imgElement.alt = imageObj.title;
+  
+        // Append the image element to the container div
+        imageSpinBox.appendChild(imgElement);
+      });
+
+      imagesToSpin = imageSpinBox.querySelectorAll('img')
+    } else {
+      imagesToSpin = imageSpinBox.querySelectorAll('img')
+    }
+
+    return imagesToSpin;
   }
 
   /* Set the attributes and styles for the overlay element */
