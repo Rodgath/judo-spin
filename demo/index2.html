@@ -18,15 +18,15 @@
         <h2>360° degrees image spinner and rotation using JavaScript. </h2>
 
         <nav class="image-spin-demos">
-          <a class="current-demo" href="index.html">Demo 1</a>
-          <a href="index2.html">Demo 2</a>
+          <a href="index.html">Demo 1</a>
+          <a class="current-demo" href="index2.html">Demo 2</a>
           <a href="index3.html">Demo 3</a>
           <a href="index4.html">Demo 4</a>
         </nav>
 
       </header>
-
-      <div class="image-spin-box image-spin-demo">
+      
+      <div class="image-spin-demo" data-image-spin='{ "currImage": 7 }'>
         <img src="images/00.png" alt="Image 00">
         <img src="images/01.png" alt="Image 01">
         <img src="images/02.png" alt="Image 02">
@@ -66,14 +66,6 @@
       </div>
 
     </div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        imageSpin360('.image-spin-box', {
-          currImage: 1
-        });
-      });
-    </script>
 
     <script src="js/image-spin-360.min.js"></script>
   </body>

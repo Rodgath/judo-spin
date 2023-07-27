@@ -14,6 +14,7 @@ function imageSpin360(element, options) {
     }
   }
 
+  /* Merge 'options' with 'defaults' */
   options = Object.assign({}, defaults, options);
     
   /* Current image starts at 0 or based on options entry */
@@ -68,8 +69,7 @@ function imageSpin360(element, options) {
         const imgElement = document.createElement('img');
         imgElement.src = imageObj.src;
         imgElement.alt = imageObj.title;
-  
-        // Append the image element to the container div
+        
         imageSpinBox.appendChild(imgElement);
       });
 
@@ -181,7 +181,7 @@ function imageSpin360(element, options) {
 
       dir === 'right' ? currImagePos++ : dir === 'left' ? currImagePos-- : null;
 
-      /* Calculate the rotation angle based on mouse position */
+      /* Calculate the rotation angle based on mouse or touch position */
       const maxRotation = 360; // 360 degrees for a full rotation; Maybe alterable
       currentAngle = currImagePos * anglePerImage;
       
@@ -221,11 +221,11 @@ function imageSpin360(element, options) {
   /* Show the preferred/intended image by default */
   showImageForAngle(currentAngle);
 
-  /* Store the previous position of the mouse */
+  /* Store the previous position of the mouse/touch */
   let prevX = null;
   let prevY = null;
 
-  /* Mouse sensitivity factor (adjust this to set sensitivity) */
+  /* Mouse/touch sensitivity factor */
   const sensitivity = 1; // Increase for higher sensitivity, decrease for lower sensitivity
 
   /* Detect the direction */

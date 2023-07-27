@@ -1,0 +1,80 @@
+body {
+  font-family: Geneva, Verdana, sans-serif;
+  background : #f9f9f9;
+  font-size  : 15px;
+  color      : #111;
+  overflow-y : scroll;
+  overflow-x : hidden;
+}
+
+.container>header {
+  margin     : 10px;
+  padding    : 20px 10px 10px 10px;
+  position   : relative;
+  display    : block;
+  text-align : center;
+}
+
+.container>header h1 {
+  position   : relative;
+  line-height: 32px;
+  font-size  : 32px;
+  font-weight: 700;
+  margin     : 0;
+  color      : #676767;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+.container>header h2 {
+  font-size  : 14px;
+  font-weight: 300;
+  font-style : italic;
+  margin     : 0 0 14px 0;
+  padding    : 15px 0 5px 0;
+  color      : #787878;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+.image-spin-demos {
+  text-align : center;
+  display    : block;
+  line-height: 30px;
+  padding    : 5px 0;
+}
+
+.image-spin-demos a {
+  display        : inline-block;
+  margin         : 0 4px;
+  padding        : 2px 10px;
+  color          : #aaa;
+  line-height    : 22px;
+  font-size      : 11px;
+  text-shadow    : 1px 1px 1px #fff;
+  border         : 1px solid #d9d9d9;
+  border-radius  : 3px;
+  background     : #ffffff;
+  text-decoration: none;
+  text-transform : uppercase;
+  letter-spacing : 0.1em;
+}
+
+.image-spin-demos a:hover {
+  color     : #333;
+  background: #fff;
+}
+
+.image-spin-demos a:active {
+  background: #fff;
+}
+
+.image-spin-demos a.current-demo {
+  background  : #f0f0f0;
+  border-color: #d9d9d9;
+  color       : rgb(160, 160, 160);
+}
+
+.image-spin-demo {
+  width    : 100%;
+  max-width: 800px;
+  margin   : 0 auto
+}
