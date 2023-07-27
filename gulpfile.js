@@ -5,14 +5,14 @@ const rename = require('gulp-rename');
 
 const compressJs = () => {
   return src('src/*.js')
-          .pipe(dest('./demo')) // Send original script file to /demo
+          .pipe(dest('./demo/js')) // Send original script file to /demo
           .pipe(dest('./dist')) // Send original script file to /dist
           .pipe(babel({
               presets: ['@babel/env']
           }))
           .pipe(uglify())
           .pipe(rename( { suffix: '.min' } ))
-          .pipe(dest('./demo'))
+          .pipe(dest('./demo/js'))
           .pipe(dest('./dist'))
 }
 
