@@ -133,8 +133,10 @@ function imageSpin360(element, options) {
 
     event.preventDefault();
 
-    const _event = event.type === 'touchmove' ? 'touchmove' : 'mousemove';
-    const _listener = event.type === 'touchmove' ? handleTouchMove : handleMouseMove;
+    const _event = event.type === 'touchstart' ? 'touchmove' : 'mousemove';
+    const _listener = event.type === 'touchstart' ? handleTouchMove : handleMouseMove;
+
+    console.log(event.type);
     
     /* Start motion */
     motionStarted = true;
