@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rodgath/image-spin.git"
+    "url": "git+https://github.com/Rodgath/image-spin-360.git"
   },
   "keywords": [
     "image-spin",
@@ -25,10 +25,10 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Rodgath/image-spin/issues",
+    "url": "https://github.com/Rodgath/image-spin-360/issues",
     "email": "contact@rodgath.com"
   },
-  "homepage": "https://github.com/Rodgath/image-spin",
+  "homepage": "https://github.com/Rodgath/image-spin-360",
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
