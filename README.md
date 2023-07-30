@@ -1,6 +1,6 @@
 <div id="top"></div>
 
-# Image Spin 360
+# Judo Spin
 
 360° degrees image spinner and rotation built with vanilla JavaScript. 
 
@@ -140,7 +140,7 @@ Name | Type | Default | Optional | Description
 `images` | _array_ | - |  yes | Array of images as JSON object.
 
 ## License
-judoSpin is an open-source project released under the [MIT license](http://mit-license.org).
+judoSpin is an open-source project released under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
 
 ---
 
