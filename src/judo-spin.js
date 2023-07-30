@@ -1,5 +1,5 @@
 
-function imageSpin360(element, options) {
+function judoSpin(element, options) {
 
   var defaults = {
     currImg: 1,
@@ -252,5 +252,5 @@ function imageSpin360(element, options) {
 }
 
 /* Call the function for elements with the 'data-image-spin' attribute */
-const imageSpin360Elements = document.querySelectorAll('[data-image-spin]');
-imageSpin360Elements.forEach(element => imageSpin360(element));
+const judoSpinElements = document.querySelectorAll('[data-image-spin]');
+judoSpinElements.forEach(element => judoSpin(element));

@@ -1,14 +1,14 @@
 {
-  "name": "image-spin-360",
+  "name": "judo-spin",
   "version": "1.0.0",
   "description": "360° degrees image spinner using JavaScript.",
-  "main": "./dist/image-spin-360.min.js",
+  "main": "./dist/judo-spin.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rodgath/image-spin-360.git"
+    "url": "git+https://github.com/Rodgath/judo-spin.git"
   },
   "keywords": [
     "image-spin",
@@ -16,7 +16,10 @@
     "spin-360",
     "360-degrees",
     "360",
-    "rotate"
+    "rotate",
+    "judo",
+    "judo-spin",
+    "judo-360"
   ],
   "author": {
     "name": "Rodgath",
@@ -25,10 +28,10 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Rodgath/image-spin-360/issues",
+    "url": "https://github.com/Rodgath/judo-spin/issues",
     "email": "contact@rodgath.com"
   },
-  "homepage": "https://github.com/Rodgath/image-spin-360",
+  "homepage": "https://github.com/Rodgath/judo-spin",
   "devDependencies": {
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",

@@ -4,7 +4,7 @@
 
 360° degrees image spinner and rotation built with vanilla JavaScript. 
 
-## [View Online Demo](https://rodgath.github.io/image-spin-360/demo/)
+## [View Online Demo](https://rodgath.github.io/judo-spin/demo/)
 
 <br>
 
@@ -25,14 +25,14 @@
 
 ...**[B]** Package
 
-[npm](https://www.npmjs.com/package/image-spin-360): `npm i -D image-spin-360`
+[npm](https://www.npmjs.com/package/judo-spin): `npm i -D judo-spin`
 
 # Implementation:
 There are several methods you can use to add image spin 360° into your project.
 
 ## Method 1
 ---
-#### Using `data-image-spin` attribute. [View Demo](https://rodgath.github.io/image-spin-360/demo/index2.html)
+#### Using `data-image-spin` attribute. [View Demo](https://rodgath.github.io/judo-spin/demo/index2.html)
 Your HTML code of upto 36 images
 ```html
 <div data-image-spin='{ "currImage": "6" }'>
@@ -46,16 +46,16 @@ Your HTML code of upto 36 images
 </div>
 ```
 
-#### Enqueue the imageSpin360 script at the bottom of your markup
+#### Enqueue the judoSpin script at the bottom of your markup
 ```html
-<script src="image-spin-360.min.js"></script>
+<script src="judo-spin.min.js"></script>
 ```
 
 ##### <div align="right"><a href="#top">&uarr; TOP &uarr;</a></div>
 
 ## Method 2
 ---
-#### Initializing with `imageSpin360` function. [View Demo](https://rodgath.github.io/image-spin-360/demo/index.html)
+#### Initializing with `judoSpin` function. [View Demo](https://rodgath.github.io/judo-spin/demo/index.html)
 Your HTML code of upto 36 images
 ```html
 <div class="image-spin-box">
@@ -69,19 +69,19 @@ Your HTML code of upto 36 images
 </div>
 ```
 
-#### Call the `imageSpin360()` function with two arguments.
+#### Call the `judoSpin()` function with two arguments.
 ...**1)** The element 'class' or 'id' holding the images 
 
 ...**2)** The 'options' object
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
-  imageSpin360('.image-spin-box', { currImage: 1 });
+  judoSpin('.image-spin-box', { currImage: 1 });
 });
 ```
 
-#### Enqueue the imageSpin360 script at the bottom of your markup
+#### Enqueue the judoSpin script at the bottom of your markup
 ```html
-<script src="image-spin-360.min.js"></script>
+<script src="judo-spin.min.js"></script>
 ```
 
 ##### <div align="right"><a href="#top">&uarr; TOP &uarr;</a></div>
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ## Method 3
 ---
 #### Using JSON object of images
-...**[A]** - Adding the JSON object inside the `data-image-spin` attribute. [View Demo](https://rodgath.github.io/image-spin-360/demo/index3.html)
+...**[A]** - Adding the JSON object inside the `data-image-spin` attribute. [View Demo](https://rodgath.github.io/judo-spin/demo/index3.html)
 
 ```html
 <div data-image-spin='{ 
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }'></div>
 ```
 
-...**[B]** - Add the JSON object inside the `imageSpin360` function. [View Demo](https://rodgath.github.io/image-spin-360/demo/index4.html)
+...**[B]** - Add the JSON object inside the `judoSpin` function. [View Demo](https://rodgath.github.io/judo-spin/demo/index4.html)
 
 HTML code.
 ```html
@@ -116,7 +116,7 @@ JavaScript code
 
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
-   imageSpin360('.image-rotation-box', {
+   judoSpin('.image-rotation-box', {
       currImage: 22, 
       images: [
         { "src": "images/car/01.png", "title": "Image 01" },
@@ -140,7 +140,7 @@ Name | Type | Default | Optional | Description
 `images` | _array_ | - |  yes | Array of images as JSON object.
 
 ## License
-ImageSpin360 is an open-source project released under the [MIT license](http://mit-license.org).
+judoSpin is an open-source project released under the [MIT license](http://mit-license.org).
 
 ---
 
