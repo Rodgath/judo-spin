@@ -7,7 +7,7 @@ function judoSpin(element, options) {
   
   /* Check if options argument is provided directly or in the data attribute */
   if (!options) {
-    var dataAttributeOptions = element.dataset.imageSpin;
+    var dataAttributeOptions = element.dataset.judoSpin;
     if (dataAttributeOptions) {
       options = JSON.parse(dataAttributeOptions);
     }
@@ -20,13 +20,13 @@ function judoSpin(element, options) {
   let currImagePos = convertCurrImageNumber(options.currImage) - 1;
 
   /* Set image box element */
-  let imageSpinBox;
+  let judoSpinBox;
   
   /* Check if 'element' is a valid DOM element */
   if (element instanceof HTMLElement || element instanceof Node) {
-    imageSpinBox = element;
+    judoSpinBox = element;
   } else {
-    imageSpinBox = document.querySelector(element);
+    judoSpinBox = document.querySelector(element);
   }
   
   /* Get all the images inside the spinbox element */
@@ -59,7 +59,7 @@ function judoSpin(element, options) {
   /* Get the images to spin */
   function getImagesToSpin() {
 
-    let imagesToSpin;
+    let spinImages;
     
     /* Check if ihe "images" property exists, is an array, and has items */
     if (options.hasOwnProperty('images') && Array.isArray(options.images) && options.images.length > 0) {
@@ -69,15 +69,15 @@ function judoSpin(element, options) {
         imgElement.src = imageObj.src;
         imgElement.alt = imageObj.title;
         
-        imageSpinBox.appendChild(imgElement);
+        judoSpinBox.appendChild(imgElement);
       });
 
-      imagesToSpin = imageSpinBox.querySelectorAll('img')
+      spinImages = judoSpinBox.querySelectorAll('img')
     } else {
-      imagesToSpin = imageSpinBox.querySelectorAll('img')
+      spinImages = judoSpinBox.querySelectorAll('img')
     }
 
-    return imagesToSpin;
+    return spinImages;
   }
 
   /* Set the attributes and styles for the overlay element */
@@ -90,7 +90,7 @@ function judoSpin(element, options) {
     overlayElement.style.left = '0';
     overlayElement.style.zIndex = '1';
 
-    imageSpinBox.appendChild(overlayElement);
+    judoSpinBox.appendChild(overlayElement);
 
     /* Add event listeners to change cursor on hover and reset on mouseout */
     overlayElement.addEventListener('mouseover', () => overlayElement.style.cursor = 'e-resize');
@@ -98,24 +98,24 @@ function judoSpin(element, options) {
 
   })(overlayElement);
 
-  /* Set image spin box attributes and styles */
-  (function(imageSpinBox) {
-    imageSpinBox.classList.add('judo-spin-container');
-    imageSpinBox.style.position = 'relative';
-    imageSpinBox.style.width = '100%';
-    imageSpinBox.style.height = 'auto';
-    imageSpinBox.style.overflow = 'hidden';
-  })(imageSpinBox);
+  /* Set Judo spin box attributes and styles */
+  (function(judoSpinBox) {
+    judoSpinBox.classList.add('judo-spin-container');
+    judoSpinBox.style.position = 'relative';
+    judoSpinBox.style.width = '100%';
+    judoSpinBox.style.height = 'auto';
+    judoSpinBox.style.overflow = 'hidden';
+  })(judoSpinBox);
   
   /* Set images' attributes and styles */
-  (function(imageSpinBox) {
-    const images = imageSpinBox.getElementsByTagName('img');
+  (function(judoSpinBox) {
+    const images = judoSpinBox.getElementsByTagName('img');
 
     for (let i = 0; i < images.length; i++) {
       const image = images[i];
       image.style.width = '100%';
     }
-  })(imageSpinBox);
+  })(judoSpinBox);
 
   /* Handle mousedown event */
   const handleMouseDown = event => invokeMotion(event);
@@ -214,7 +214,7 @@ function judoSpin(element, options) {
 
       /* Show the corresponding image and hide the others */
       for (let i = 1; i <= totalImages; i++) {
-        const img = imageSpinBox.querySelector('img:nth-child(' + i + ')');
+        const img = judoSpinBox.querySelector('img:nth-child(' + i + ')');
         img.style.display = (i === imageIndex) ? 'block' : 'none';
       }
   }

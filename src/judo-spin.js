@@ -59,7 +59,7 @@ function judoSpin(element, options) {
   /* Get the images to spin */
   function getImagesToSpin() {
 
-    let imagesToSpin;
+    let spinImages;
     
     /* Check if ihe "images" property exists, is an array, and has items */
     if (options.hasOwnProperty('images') && Array.isArray(options.images) && options.images.length > 0) {
@@ -72,12 +72,12 @@ function judoSpin(element, options) {
         judoSpinBox.appendChild(imgElement);
       });
 
-      imagesToSpin = judoSpinBox.querySelectorAll('img')
+      spinImages = judoSpinBox.querySelectorAll('img')
     } else {
-      imagesToSpin = judoSpinBox.querySelectorAll('img')
+      spinImages = judoSpinBox.querySelectorAll('img')
     }
 
-    return imagesToSpin;
+    return spinImages;
   }
 
   /* Set the attributes and styles for the overlay element */
