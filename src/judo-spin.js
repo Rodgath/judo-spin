@@ -7,7 +7,7 @@ function judoSpin(element, options) {
   
   /* Check if options argument is provided directly or in the data attribute */
   if (!options) {
-    var dataAttributeOptions = element.dataset.imageSpin;
+    var dataAttributeOptions = element.dataset.judoSpin;
     if (dataAttributeOptions) {
       options = JSON.parse(dataAttributeOptions);
     }
