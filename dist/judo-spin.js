@@ -1,5 +1,4 @@
-
-function judoSpin(element, options) {
+ function judoSpin(element, options) {
 
   var defaults = {
     currImg: 1,

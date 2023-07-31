@@ -1,4 +1,3 @@
-
 function judoSpin(element, options) {
 
   var defaults = {
@@ -83,7 +82,7 @@ function judoSpin(element, options) {
 
   /* Set the attributes and styles for the overlay element */
   (function(overlayElement) {
-    overlayElement.className = 'image-spin-overlay';
+    overlayElement.className = 'judo-spin-overlay';
     overlayElement.style.position = 'absolute';
     overlayElement.style.width = '100%';
     overlayElement.style.height = '100%';
@@ -101,7 +100,7 @@ function judoSpin(element, options) {
 
   /* Set image spin box attributes and styles */
   (function(imageSpinBox) {
-    imageSpinBox.classList.add('image-spin-box-container');
+    imageSpinBox.classList.add('judo-spin-container');
     imageSpinBox.style.position = 'relative';
     imageSpinBox.style.width = '100%';
     imageSpinBox.style.height = 'auto';
@@ -251,6 +250,6 @@ function judoSpin(element, options) {
   }
 }
 
-/* Call the function for elements with the 'data-image-spin' attribute */
-const judoSpinElements = document.querySelectorAll('[data-image-spin]');
+/* Call the function for elements with the 'data-judo-spin' attribute */
+const judoSpinElements = document.querySelectorAll('[data-judo-spin]');
 judoSpinElements.forEach(element => judoSpin(element));
