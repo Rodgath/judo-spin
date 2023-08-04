@@ -31,7 +31,7 @@ const setBanner = () => {
 }
 
 /* Set banner task */
-task('set:banner', () => setBanner())
+task('set:banner', () => setBanner());
 
 const compressJs = () => {
   return src('src/*.js')
@@ -50,10 +50,14 @@ const watchTask = () => {
   watch(['./src/*.js', './demo/*.html'], { events: 'all' }, series(compressJs, setBanner))
 }
 
+const buildTask = () => {
+  return series(compressJs, setBanner)
+}
+
 task('compress:js', compressJs);
 
 task('watch', watchTask);
 
-task('build', series(compressJs, setBanner));
+task('build', buildTask);
 
-exports.default = compressJs;
+exports.default = buildTask();
