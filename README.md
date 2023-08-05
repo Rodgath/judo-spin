@@ -20,15 +20,22 @@
 
 # Installation 
 
-...**[A]** Download 
+**[A]** Download 
 
++ [judo-spin.min.js](https://unpkg.com/judo-spin@1.0.0/dist/js/judo-spin.min.js) - Minified
++ [judo-spin.js](https://unpkg.com/judo-spin@1.0.0/dist/js/judo-spin.min.js) - Unminified
 
-...**[B]** Package
+**[B]** Package
 
-[npm](https://www.npmjs.com/package/judo-spin): `npm i judo-spin`
++ Install with [npm](https://www.npmjs.com/package/judo-spin): `npm install judo-spin` 
+* Install with [yarn](https://yarnpkg.com/): `yarn add judo-spin`
+
+**[C]** Get a local working copy of the development repository _(Optional)_ <br />
+`git clone https://github.com/Rodgath/judo-spin.git`
+
 
 # Implementation:
-There are several methods you can use to add image spin 360° into your project.
+There are several methods you can use to add Judo Spin into your project.
 
 ## Method 1
 ---
@@ -47,8 +54,15 @@ Your HTML code of upto 36 images
 ```
 
 #### Enqueue the judoSpin script at the bottom of your markup
++ Using local script file.
 ```html
 <script src="judo-spin.min.js"></script>
+<!-- OR -->
+<script src="./node_modules/judo-spin/dist/js/judo-spin.min.js"></script>
+```
++ Using CDN file. _(Optional)_
+```html
+<script src="https://cdn.jsdelivr.net/npm/judo-spin@1.0.0/dist/js/judo-spin.min.js"></script>
 ```
 
 ##### <div align="right"><a href="#top">&uarr; TOP &uarr;</a></div>
@@ -70,9 +84,9 @@ Your HTML code of upto 36 images
 ```
 
 #### Call the `judoSpin()` function with two arguments.
-...**1)** The element 'class' or 'id' holding the images 
+...**1)** The element _'class'_ or _'id'_ holding the images 
 
-...**2)** The 'options' object
+...**2)** The _'options'_ object
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
   judoSpin('.image-spin-box', { currImage: 1 });
@@ -80,8 +94,15 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 
 #### Enqueue the judoSpin script at the bottom of your markup
++ Using local script file.
 ```html
 <script src="judo-spin.min.js"></script>
+<!-- OR -->
+<script src="./node_modules/judo-spin/dist/js/judo-spin.min.js"></script>
+```
++ Using CDN file. _(Optional)_
+```html
+<script src="https://cdn.jsdelivr.net/npm/judo-spin@1.0.0/dist/js/judo-spin.min.js"></script>
 ```
 
 ##### <div align="right"><a href="#top">&uarr; TOP &uarr;</a></div>
@@ -136,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 Name | Type | Default | Optional | Description
 :--- | :--- | :------ | :------- | :----------
-`currImage` | _number_ | 1 | yes | The default image when image spin loads. Range is 1 - 36.
+`currImage` | _number_ | 1 | yes | The default image when judo spin loads. Range is _1 - 36_.
 `images` | _array_ | - |  yes | Array of images as JSON object.
 
 ## License
