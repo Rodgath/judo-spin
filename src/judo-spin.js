@@ -262,8 +262,8 @@ function judoSpin(element, options) {
     return direction;
   }
 
-  /* Handle draggable image scroller */
-  function scrollerHandler() {
+  /* Handle draggable scroller */
+  function draggableScroller() {
 
     /* Create Judo scroller element */
     const judoScroller = document.createElement('div');
@@ -360,7 +360,7 @@ function judoSpin(element, options) {
     document.addEventListener('touchend', handleDragEnd);
   }
 
-  scrollerHandler();
+  draggableScroller();
 }
 
 /* Call the function for elements with the 'data-judo-spin' attribute */
