@@ -19,8 +19,11 @@ function judoSpin(element, options) {
   /* Current image starts at 0 or based on options entry */
   let currImagePos = convertCurrImageNumber(options.currImage) - 1;
 
-  /* Set image box element */
+  /* Set judo box element */
   let judoSpinBox;
+
+  /* Set judo box wrapper element */
+  let judoSpinWrapper;
   
   /* Check if 'element' is a valid DOM element */
   if (element instanceof HTMLElement || element instanceof Node) {
@@ -115,6 +118,16 @@ function judoSpin(element, options) {
       const image = images[i];
       image.style.width = '100%';
     }
+  })(judoSpinBox);
+
+  /* Create judoSpinBox wrapper */
+  (function(judoSpinBox) {
+    judoSpinWrapper = document.createElement('div');
+    judoSpinWrapper.classList.add('judo-spin-wrapper');
+    judoSpinWrapper.style.width = 'fit-content';
+    judoSpinWrapper.style.margin = '0 auto';
+    judoSpinBox.parentNode.insertBefore(judoSpinWrapper, judoSpinBox);
+    judoSpinWrapper.appendChild(judoSpinBox);
   })(judoSpinBox);
 
   /* Handle mousedown event */
@@ -248,6 +261,122 @@ function judoSpin(element, options) {
 
     return direction;
   }
+
+  /* Handle draggable scroller */
+  function draggableScroller() {
+
+    /* Create Judo scroller element */
+    const judoScroller = document.createElement('div');
+    judoScroller.id = 'judo-scroller';
+    judoScroller.style.cssText = `
+    position: relative;
+    width: 100%;
+    height: 12px;
+    background-color: #f1f1f1;
+    margin: 20px auto;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 3px #d7d7d7;`;
+
+    /* Create Judo draggable element */
+    const judoDraggable = document.createElement('div');
+    judoDraggable.id = 'judo-draggable';
+    judoDraggable.style.cssText = `
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: calc(100% + 10px);
+    background-color: #4caf50;
+    border-radius: 20px;
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;`;
+    
+    /* Create a new element (pseudo-element) */
+    const pseudoElement = document.createElement('span');
+    pseudoElement.textContent = '| | |';
+    pseudoElement.style.cssText = `
+    color: #fff;
+    position: relative;
+    height: 10px;
+    line-height: 10px;
+    overflow: hidden;
+    text-shadow: 1px 0 2px #a8a8a8;`;
+    
+    /* Append elements to respective parent nodes */
+    judoDraggable.appendChild(pseudoElement);
+    judoScroller.appendChild(judoDraggable);
+    judoSpinWrapper.appendChild(judoScroller);
+    
+    /* Flag to track if the button is being dragged */
+    let dragging = false;
+
+    /* Add event listeners to the draggable button for dragging */
+    judoDraggable.addEventListener('mousedown', handleDragStart);
+    judoDraggable.addEventListener('touchstart', handleDragStart);
+
+    /* Handle drag start event */
+    function handleDragStart(event) {
+      event.preventDefault();
+      dragging = true;
+      
+      document.addEventListener('mousemove', handleDragMove);
+      document.addEventListener('touchmove', handleDragMove);
+    }
+
+    /* Handle drag move event */
+    function handleDragMove(event) {
+      if (dragging) {
+        const judoScrollerRect = judoScroller.getBoundingClientRect();
+        const buttonWidth = judoDraggable.offsetWidth;
+        const minScrollPos = 0;
+        const maxScrollPos = judoScroller.offsetWidth - buttonWidth;
+
+        let scrollPos;
+
+        if (event.type === 'touchmove') {
+          scrollPos = event.touches[0].clientX - judoScrollerRect.left - buttonWidth / 2;
+        } else {
+          scrollPos = event.clientX - judoScrollerRect.left - buttonWidth / 2;
+        }
+
+        /* Ensure the scroll position stays within bounds */
+        scrollPos = Math.max(minScrollPos, Math.min(maxScrollPos, scrollPos));
+
+        /* Update the draggable button position */
+        judoDraggable.style.left = `${scrollPos}px`;
+
+        /* Calculate the current angle based on the scroll position */
+        const maxRotation = 360; // 360 degrees for a full rotation
+        const anglePerScroll = maxRotation / maxScrollPos;
+        currentAngle = Math.floor(scrollPos * anglePerScroll);
+
+        /* Adjust currentAngle to be within the range of 0 to 359 degrees */
+        currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
+
+        /* Show the corresponding image based on the current angle */
+        showImageForAngle(currentAngle);
+      }
+    }
+
+    /* Handle drag end event */
+    function handleDragEnd() {
+      dragging = false;
+      /* Remove the mousemove and touchmove event listeners */
+      document.removeEventListener('mousemove', handleDragMove);
+      document.removeEventListener('touchmove', handleDragMove);
+    }
+
+    /* Add event listeners for mouseup and touchend events */
+    document.addEventListener('mouseup', handleDragEnd);
+    document.addEventListener('touchend', handleDragEnd);
+  }
+
+  draggableScroller();
 }
 
 /* Call the function for elements with the 'data-judo-spin' attribute */
