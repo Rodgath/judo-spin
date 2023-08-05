@@ -262,12 +262,40 @@ function judoSpin(element, options) {
     return direction;
   }
 
-
+  /* Handle draggable image scroller */
   function scrollerHandler() {
-    
-    const judoScroller = document.getElementById('judo-scroller');
-    const judoDraggable = document.getElementById('judo-draggable');
 
+    /* Create Judo scroller element */
+    const judoScroller = document.createElement('div');
+    judoScroller.id = 'judo-scroller';
+    judoScroller.style.cssText = `
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: #f1f1f1;
+    margin: 20px auto;
+    border-radius: 10px;
+    cursor: pointer;`;
+
+    /* Create Judo draggable element */
+    const judoDraggable = document.createElement('div');
+    judoDraggable.id = 'judo-draggable';
+    judoDraggable.style.cssText = `position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 20px;
+    background-color: #4caf50;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;`;
+    
+    /* Append elements to respective parent nodes */
+    judoScroller.appendChild(judoDraggable);
+    judoSpinWrapper.appendChild(judoScroller);
+    
     /* Flag to track if the button is being dragged */
     let dragging = false;
 
