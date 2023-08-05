@@ -298,14 +298,15 @@ function judoSpin(element, options) {
     
     /* Create a new element (pseudo-element) */
     const pseudoElement = document.createElement('span');
-    pseudoElement.textContent = '| | |';
+    pseudoElement.textContent = '|||';
     pseudoElement.style.cssText = `
     color: #fff;
     position: relative;
     height: 10px;
     line-height: 10px;
     overflow: hidden;
-    text-shadow: 1px 0 2px #a8a8a8;`;
+    text-shadow: 1px 0 2px #a8a8a8;
+    letter-spacing: 0.05em;`;
     
     /* Append elements to respective parent nodes */
     judoDraggable.appendChild(pseudoElement);
