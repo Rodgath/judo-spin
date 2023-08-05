@@ -25,7 +25,7 @@
 
 ...**[B]** Package
 
-[npm](https://www.npmjs.com/package/judo-spin): `npm i -D judo-spin`
+[npm](https://www.npmjs.com/package/judo-spin): `npm i judo-spin`
 
 # Implementation:
 There are several methods you can use to add image spin 360° into your project.
