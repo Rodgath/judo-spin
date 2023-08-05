@@ -3,7 +3,7 @@ function judoSpin(element, options) {
   var defaults = {
     currImg: 1,
     images: [],
-    enableDragHangle: false
+    enableDragHandle: false
   };
   
   /* Check if options argument is provided directly or in the data attribute */
@@ -410,7 +410,7 @@ function judoSpin(element, options) {
     document.addEventListener('touchend', handleDragEnd);
   }
 
-  if (options.enableDragHangle) {
+  if (options.enableDragHandle) {
     draggableScroller();
   }
 }
