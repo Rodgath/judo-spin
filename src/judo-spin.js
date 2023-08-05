@@ -2,7 +2,8 @@ function judoSpin(element, options) {
 
   var defaults = {
     currImg: 1,
-    images: []
+    images: [],
+    enableDragHangle: false
   };
   
   /* Check if options argument is provided directly or in the data attribute */
@@ -377,7 +378,9 @@ function judoSpin(element, options) {
     document.addEventListener('touchend', handleDragEnd);
   }
 
-  draggableScroller();
+  if (options.enableDragHangle) {
+    draggableScroller();
+  }
 }
 
 /* Call the function for elements with the 'data-judo-spin' attribute */
