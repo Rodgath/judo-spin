@@ -16,7 +16,8 @@ function judoSpin(element, options) {
 
   var defaults = {
     currImg: 1,
-    images: []
+    images: [],
+    enableDragHangle: false
   };
   
   /* Check if options argument is provided directly or in the data attribute */
@@ -319,11 +320,43 @@ function judoSpin(element, options) {
     height: 10px;
     line-height: 10px;
     overflow: hidden;
-    text-shadow: 1px 0 2px #a8a8a8;
-    letter-spacing: 0.05em;`;
+    text-shadow: 1px 0 2px #a8a8a8;`;
+
+    /* Common arrows CSS */
+    const arrowsCommonCSS = `
+    background-color   : #fff;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat        : no-repeat;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-7px);
+    width: 14px;
+    height: 14px;`;
+    
+    /* Create left arrow */
+    const leftArrow = document.createElement('span');
+    leftArrow.textContent = '';
+    const leftIcon = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-caret-left-filled' width='14' height='14' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'%3E%3C/path%3E%3Cpath d='M13.883 5.007l.058 -.005h.118l.058 .005l.06 .009l.052 .01l.108 .032l.067 .027l.132 .07l.09 .065l.081 .073l.083 .094l.054 .077l.054 .096l.017 .036l.027 .067l.032 .108l.01 .053l.01 .06l.004 .057l.002 .059v12c0 .852 -.986 1.297 -1.623 .783l-.084 -.076l-6 -6a1 1 0 0 1 -.083 -1.32l.083 -.094l6 -6l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01z' stroke-width='0' fill='currentColor'%3E%3C/path%3E%3C/svg%3E")`;
+    leftArrow.style.cssText = `
+    -webkit-mask-image: ${leftIcon};
+    mask-image:${leftIcon};
+    left: 1px;
+    ${arrowsCommonCSS}`;
+    
+    /* Create right arrow */
+    const rightArrow = document.createElement('span');
+    rightArrow.textContent = '';
+    const rightIcon = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-caret-right-filled' width='14' height='14' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'%3E%3C/path%3E%3Cpath d='M9 6c0 -.852 .986 -1.297 1.623 -.783l.084 .076l6 6a1 1 0 0 1 .083 1.32l-.083 .094l-6 6l-.094 .083l-.077 .054l-.096 .054l-.036 .017l-.067 .027l-.108 .032l-.053 .01l-.06 .01l-.057 .004l-.059 .002l-.059 -.002l-.058 -.005l-.06 -.009l-.052 -.01l-.108 -.032l-.067 -.027l-.132 -.07l-.09 -.065l-.081 -.073l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057l-.002 -12.059z' stroke-width='0' fill='currentColor'%3E%3C/path%3E%3C/svg%3E")`;
+    rightArrow.style.cssText = `
+    -webkit-mask-image: ${rightIcon};
+    mask-image:${rightIcon};
+    right: 1px;
+    ${arrowsCommonCSS}`;
     
     /* Append elements to respective parent nodes */
     judoDraggable.appendChild(pseudoElement);
+    judoDraggable.appendChild(leftArrow);
+    judoDraggable.appendChild(rightArrow);
     judoScroller.appendChild(judoDraggable);
     judoSpinWrapper.appendChild(judoScroller);
     
@@ -391,7 +424,9 @@ function judoSpin(element, options) {
     document.addEventListener('touchend', handleDragEnd);
   }
 
-  draggableScroller();
+  if (options.enableDragHangle) {
+    draggableScroller();
+  }
 }
 
 /* Call the function for elements with the 'data-judo-spin' attribute */
