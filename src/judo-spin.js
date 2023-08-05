@@ -19,8 +19,11 @@ function judoSpin(element, options) {
   /* Current image starts at 0 or based on options entry */
   let currImagePos = convertCurrImageNumber(options.currImage) - 1;
 
-  /* Set image box element */
+  /* Set judo box element */
   let judoSpinBox;
+
+  /* Set judo box wrapper element */
+  let judoSpinWrapper;
   
   /* Check if 'element' is a valid DOM element */
   if (element instanceof HTMLElement || element instanceof Node) {
@@ -115,6 +118,16 @@ function judoSpin(element, options) {
       const image = images[i];
       image.style.width = '100%';
     }
+  })(judoSpinBox);
+
+  /* Create judoSpinBox wrapper */
+  (function(judoSpinBox) {
+    judoSpinWrapper = document.createElement('div');
+    judoSpinWrapper.classList.add('judo-spin-wrapper');
+    judoSpinWrapper.style.width = 'fit-content';
+    judoSpinWrapper.style.margin = '0 auto';
+    judoSpinBox.parentNode.insertBefore(judoSpinWrapper, judoSpinBox);
+    judoSpinWrapper.appendChild(judoSpinBox);
   })(judoSpinBox);
 
   /* Handle mousedown event */
