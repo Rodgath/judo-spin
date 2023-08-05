@@ -271,28 +271,44 @@ function judoSpin(element, options) {
     judoScroller.style.cssText = `
     position: relative;
     width: 100%;
-    height: 20px;
+    height: 12px;
     background-color: #f1f1f1;
     margin: 20px auto;
     border-radius: 10px;
-    cursor: pointer;`;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 3px #d7d7d7;`;
 
     /* Create Judo draggable element */
     const judoDraggable = document.createElement('div');
     judoDraggable.id = 'judo-draggable';
-    judoDraggable.style.cssText = `position: absolute;
+    judoDraggable.style.cssText = `
+    position: absolute;
     top: 0;
     left: 0;
     width: 60px;
-    height: 20px;
+    height: calc(100% + 10px);
     background-color: #4caf50;
     border-radius: 20px;
     cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;`;
     
+    /* Create a new element (pseudo-element) */
+    const pseudoElement = document.createElement('span');
+    pseudoElement.textContent = '| | |';
+    pseudoElement.style.cssText = `
+    color: #fff;
+    position: relative;
+    height: 10px;
+    line-height: 10px;
+    overflow: hidden;
+    text-shadow: 1px 0 2px #a8a8a8;`;
+    
     /* Append elements to respective parent nodes */
+    judoDraggable.appendChild(pseudoElement);
     judoScroller.appendChild(judoDraggable);
     judoSpinWrapper.appendChild(judoScroller);
     
