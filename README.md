@@ -89,7 +89,7 @@ Your HTML code of upto 36 images
 ...**2)** The _'options'_ object
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
-  judoSpin('.image-spin-box', { currImage: 1 });
+  judoSpin('.image-spin-box', { currImage: 1, enableDragHangle: true });
 });
 ```
 
