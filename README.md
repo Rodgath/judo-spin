@@ -32,10 +32,10 @@ There are several methods you can use to add image spin 360° into your project.
 
 ## Method 1
 ---
-#### Using `data-image-spin` attribute. [View Demo](https://rodgath.github.io/judo-spin/demo/index2.html)
+#### Using `data-judo-spin` attribute. [View Demo](https://rodgath.github.io/judo-spin/demo/index2.html)
 Your HTML code of upto 36 images
 ```html
-<div data-image-spin='{ "currImage": "6" }'>
+<div data-judo-spin='{ "currImage": "6" }'>
   <img src="images/car/01.png" alt="Image 01">
   <img src="images/car/02.png" alt="Image 02">
 
@@ -89,10 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
 ## Method 3
 ---
 #### Using JSON object of images
-...**[A]** - Adding the JSON object inside the `data-image-spin` attribute. [View Demo](https://rodgath.github.io/judo-spin/demo/index3.html)
+...**[A]** - Adding the JSON object inside the `data-judo-spin` attribute. [View Demo](https://rodgath.github.io/judo-spin/demo/index3.html)
 
 ```html
-<div data-image-spin='{ 
+<div data-judo-spin='{ 
     "currImage": 13,
     "images": [
       { "src": "images/car/01.png", "title": "Image 01" },
