@@ -38,7 +38,7 @@
 There are several methods you can use to add Judo Spin into your project.
 
 ## Method 1
----
+
 #### Using `data-judo-spin` attribute. [View Demo](https://rodgath.github.io/judo-spin/demo/index2.html)
 Your HTML code of upto 36 images
 ```html
@@ -67,8 +67,9 @@ Your HTML code of upto 36 images
 
 ##### <div align="right"><a href="#top">&uarr; TOP &uarr;</a></div>
 
-## Method 2
 ---
+## Method 2
+
 #### Initializing with `judoSpin` function. [View Demo](https://rodgath.github.io/judo-spin/demo/index.html)
 Your HTML code of upto 36 images
 ```html
@@ -107,8 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ##### <div align="right"><a href="#top">&uarr; TOP &uarr;</a></div>
 
-## Method 3
 ---
+## Method 3
+
 #### Using JSON object of images
 ...**[A]** - Adding the JSON object inside the `data-judo-spin` attribute. [View Demo](https://rodgath.github.io/judo-spin/demo/index3.html)
 
@@ -159,6 +161,7 @@ Name | Type | Default | Optional | Description
 :--- | :--- | :------ | :------- | :----------
 `currImage` | _number_ | 1 | yes | The default image when judo spin loads. Range is _1 - 36_.
 `images` | _array_ | - |  yes | Array of images as JSON object.
+`enableDragHandle` | _boolean_ | false |  yes | Whether to show the drag handler scroller.
 
 ## License
 judoSpin is an open-source project released under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
