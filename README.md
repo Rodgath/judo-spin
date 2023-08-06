@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 ##### <div align="right"><a href="#top">&uarr; TOP &uarr;</a></div>
 
+---
 # Options 
 
 Name | Type | Default | Optional | Description
