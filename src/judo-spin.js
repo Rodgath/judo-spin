@@ -55,6 +55,9 @@ function judoSpin(element, options) {
   /* Create Judo scroller element */
   const judoScroller = options.enableDragHandle ? document.createElement('div') : null;
   
+  /* Create Judo draggable element */
+  const judoDraggable = options.enableDragHandle ? document.createElement('div') : null;
+  
   /* Convert a string to a positive number or its absolute value if negative */
   function convertCurrImageNumber(str) {
     const number = parseInt(str, 10); // Convert string to integer
@@ -342,8 +345,7 @@ function judoSpin(element, options) {
     cursor: pointer;
     box-shadow: inset 1px 1px 3px #d7d7d7;`;
 
-    /* Create Judo draggable element */
-    const judoDraggable = document.createElement('div');
+    /* Set judoDraggable attributes and styles */
     judoDraggable.id = 'judo-draggable';
     judoDraggable.style.cssText = `
     position: absolute;
@@ -359,7 +361,7 @@ function judoSpin(element, options) {
     display: flex;
     align-items: center;
     justify-content: center;`;
-    
+
     /* Create a new element (pseudo-element) */
     const pseudoElement = document.createElement('span');
     pseudoElement.textContent = '|||';
