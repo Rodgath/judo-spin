@@ -52,6 +52,9 @@ function judoSpin(element, options) {
   /* Create the overlay div element */
   const overlayElement = document.createElement('div');
   
+  /* Create Judo scroller element */
+  const judoScroller = options.enableDragHandle ? document.createElement('div') : null;
+  
   /* Convert a string to a positive number or its absolute value if negative */
   function convertCurrImageNumber(str) {
     const number = parseInt(str, 10); // Convert string to integer
@@ -327,8 +330,7 @@ function judoSpin(element, options) {
   /* Handle draggable scroller */
   function draggableScroller() {
 
-    /* Create Judo scroller element */
-    const judoScroller = document.createElement('div');
+    /* Set judoScroller attributes and styles */
     judoScroller.id = 'judo-scroller';
     judoScroller.style.cssText = `
     position: relative;
