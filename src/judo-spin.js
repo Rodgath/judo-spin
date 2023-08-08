@@ -278,6 +278,25 @@ function judoSpin(element, options) {
     return direction;
   }
   
+  /* Set initial draggable button position */
+  function setDraggableButton() {
+    
+    const buttonWidth = judoDraggable.offsetWidth;
+    const minScrollPos = 0;
+    const maxScrollPos = judoScroller.offsetWidth - buttonWidth;
+    
+    let scrollPos;
+    
+    /* Calculate the initial scroll position based on the current image */
+    const initialImageIndex = convertCurrImageNumber(options.currImage);
+    const initialScrollPos = (maxScrollPos / totalImages) * initialImageIndex;
+    
+    scrollPos = Math.max(minScrollPos, Math.min(maxScrollPos, initialScrollPos));
+    
+    /* Set the initial position of the draggable button */
+    judoDraggable.style.left = `${scrollPos}px`;
+  }
+  
   /* Handle drag move event */
   function handleDragMove(event) {
     if (dragging) {
@@ -375,9 +394,9 @@ function judoSpin(element, options) {
 
     /* Common arrows CSS */
     const arrowsCommonCSS = `
-    background-color   : #fff;
+    background-color: #fff;
     -webkit-mask-repeat: no-repeat;
-    mask-repeat        : no-repeat;
+    mask-repeat: no-repeat;
     position: absolute;
     top: 50%;
     transform: translateY(-7px);
@@ -410,9 +429,6 @@ function judoSpin(element, options) {
     judoDraggable.appendChild(rightArrow);
     judoScroller.appendChild(judoDraggable);
     judoSpinWrapper.appendChild(judoScroller);
-    
-    /* Flag to track if the button is being dragged */
-    let dragging = false;
 
     /* Add event listeners to the draggable button for dragging */
     judoDraggable.addEventListener('mousedown', handleDragStart);
@@ -425,6 +441,7 @@ function judoSpin(element, options) {
 
   if (options.enableDragHandle) {
     draggableScroller();
+    setDraggableButton();
   }
 }
 
