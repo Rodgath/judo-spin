@@ -204,6 +204,12 @@ function judoSpin(element, options) {
       currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
 
       showImageForAngle(currentAngle);
+        
+      /* Call handleDragMove to update the draggable button position */
+      if (options.enableDragHandle) {
+        dragging = true;
+        handleDragMove(event);
+      }
     }
   }
   
