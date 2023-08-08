@@ -19,6 +19,9 @@ function judoSpin(element, options) {
     
   /* Current image starts at 0 or based on options entry */
   let currImagePos = convertCurrImageNumber(options.currImage) - 1;
+    
+  /* Flag to track if the button is being dragged */
+  let dragging = false;
 
   /* Set judo box element */
   let judoSpinBox;
@@ -130,7 +133,7 @@ function judoSpin(element, options) {
     judoSpinBox.parentNode.insertBefore(judoSpinWrapper, judoSpinBox);
     judoSpinWrapper.appendChild(judoSpinBox);
   })(judoSpinBox);
-
+  
   /* Handle mousedown event */
   const handleMouseDown = event => invokeMotion(event);
 
