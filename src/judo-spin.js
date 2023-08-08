@@ -288,7 +288,7 @@ function judoSpin(element, options) {
     let scrollPos;
     
     /* Calculate the initial scroll position based on the current image */
-    const initialImageIndex = convertCurrImageNumber(options.currImage);
+    const initialImageIndex = convertCurrImageNumber(options.currImage) - 1;
     const initialScrollPos = (maxScrollPos / totalImages) * initialImageIndex;
     
     scrollPos = Math.max(minScrollPos, Math.min(maxScrollPos, initialScrollPos));
