@@ -363,7 +363,7 @@ function judoSpin(element, options) {
     justify-content: center;`;
 
     /* Create a new element (pseudo-element) */
-    const pseudoElement = document.createElement('span');
+    const pseudoElement = options.enableDragHandle ? document.createElement('span') : null;
     pseudoElement.textContent = '|||';
     pseudoElement.style.cssText = `
     color: #fff;
