@@ -1,6 +1,6 @@
 {
   "name": "judo-spin",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "360° degrees image spinner using JavaScript.",
   "main": "./dist/js/judo-spin.min.js",
   "scripts": {
