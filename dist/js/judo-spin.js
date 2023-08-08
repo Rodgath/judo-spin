@@ -15,7 +15,7 @@
 function judoSpin(element, options) {
 
   var defaults = {
-    currImg: 1,
+    currImage: 1,
     images: [],
     enableDragHandle: false
   };
@@ -33,6 +33,9 @@ function judoSpin(element, options) {
     
   /* Current image starts at 0 or based on options entry */
   let currImagePos = convertCurrImageNumber(options.currImage) - 1;
+    
+  /* Flag to track if the button is being dragged */
+  let dragging = false;
 
   /* Set judo box element */
   let judoSpinBox;
@@ -62,6 +65,12 @@ function judoSpin(element, options) {
 
   /* Create the overlay div element */
   const overlayElement = document.createElement('div');
+  
+  /* Create Judo scroller element */
+  const judoScroller = options.enableDragHandle ? document.createElement('div') : null;
+  
+  /* Create Judo draggable element */
+  const judoDraggable = options.enableDragHandle ? document.createElement('div') : null;
   
   /* Convert a string to a positive number or its absolute value if negative */
   function convertCurrImageNumber(str) {
@@ -144,7 +153,7 @@ function judoSpin(element, options) {
     judoSpinBox.parentNode.insertBefore(judoSpinWrapper, judoSpinBox);
     judoSpinWrapper.appendChild(judoSpinBox);
   })(judoSpinBox);
-
+  
   /* Handle mousedown event */
   const handleMouseDown = event => invokeMotion(event);
 
@@ -218,6 +227,12 @@ function judoSpin(element, options) {
       currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
 
       showImageForAngle(currentAngle);
+        
+      /* Call handleDragMove to update the draggable button position */
+      if (options.enableDragHandle) {
+        dragging = true;
+        handleDragMove(event);
+      }
     }
   }
   
@@ -276,12 +291,82 @@ function judoSpin(element, options) {
 
     return direction;
   }
+  
+  /* Set initial draggable button position */
+  function setDraggableButton() {
+    
+    const buttonWidth = judoDraggable.offsetWidth;
+    const minScrollPos = 0;
+    const maxScrollPos = judoScroller.offsetWidth - buttonWidth;
+    
+    let scrollPos;
+    
+    /* Calculate the initial scroll position based on the current image */
+    const initialImageIndex = convertCurrImageNumber(options.currImage);
+    const initialScrollPos = (maxScrollPos / totalImages) * initialImageIndex;
+    
+    scrollPos = Math.max(minScrollPos, Math.min(maxScrollPos, initialScrollPos));
+    
+    /* Set the initial position of the draggable button */
+    judoDraggable.style.left = `${scrollPos}px`;
+  }
+  
+  /* Handle drag move event */
+  function handleDragMove(event) {
+    if (dragging) {
+      const judoScrollerRect = judoScroller.getBoundingClientRect();
+      const buttonWidth = judoDraggable.offsetWidth;
+      const minScrollPos = 0;
+      const maxScrollPos = judoScroller.offsetWidth - buttonWidth;
+
+      let scrollPos;
+
+      if (event.type === 'touchmove') {
+        scrollPos = event.touches[0].clientX - judoScrollerRect.left - buttonWidth / 2;
+      } else {
+        scrollPos = event.clientX - judoScrollerRect.left - buttonWidth / 2;
+      }
+
+      /* Ensure the scroll position stays within bounds */
+      scrollPos = Math.max(minScrollPos, Math.min(maxScrollPos, scrollPos));
+
+      /* Update the draggable button position */
+      judoDraggable.style.left = `${scrollPos}px`;
+      
+      /* Calculate the current angle based on the scroll position */
+      const maxRotation = 360; // 360 degrees for a full rotation
+      const anglePerScroll = maxRotation / maxScrollPos;
+      currentAngle = Math.floor(scrollPos * anglePerScroll);
+
+      /* Adjust currentAngle to be within the range of 0 to 359 degrees */
+      currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
+
+      /* Show the corresponding image based on the current angle */
+      showImageForAngle(currentAngle);
+    }
+  }
+
+  /* Handle drag start event */
+  function handleDragStart(event) {
+    event.preventDefault();
+    dragging = true;
+    
+    document.addEventListener('mousemove', handleDragMove);
+    document.addEventListener('touchmove', handleDragMove);
+  }
+
+  /* Handle drag end event */
+  function handleDragEnd() {
+    dragging = false;
+    /* Remove the mousemove and touchmove event listeners */
+    document.removeEventListener('mousemove', handleDragMove);
+    document.removeEventListener('touchmove', handleDragMove);
+  }
 
   /* Handle draggable scroller */
   function draggableScroller() {
 
-    /* Create Judo scroller element */
-    const judoScroller = document.createElement('div');
+    /* Set judoScroller attributes and styles */
     judoScroller.id = 'judo-scroller';
     judoScroller.style.cssText = `
     position: relative;
@@ -293,8 +378,7 @@ function judoSpin(element, options) {
     cursor: pointer;
     box-shadow: inset 1px 1px 3px #d7d7d7;`;
 
-    /* Create Judo draggable element */
-    const judoDraggable = document.createElement('div');
+    /* Set judoDraggable attributes and styles */
     judoDraggable.id = 'judo-draggable';
     judoDraggable.style.cssText = `
     position: absolute;
@@ -310,9 +394,9 @@ function judoSpin(element, options) {
     display: flex;
     align-items: center;
     justify-content: center;`;
-    
+
     /* Create a new element (pseudo-element) */
-    const pseudoElement = document.createElement('span');
+    const pseudoElement = options.enableDragHandle ? document.createElement('span') : null;
     pseudoElement.textContent = '|||';
     pseudoElement.style.cssText = `
     color: #fff;
@@ -324,9 +408,9 @@ function judoSpin(element, options) {
 
     /* Common arrows CSS */
     const arrowsCommonCSS = `
-    background-color   : #fff;
+    background-color: #fff;
     -webkit-mask-repeat: no-repeat;
-    mask-repeat        : no-repeat;
+    mask-repeat: no-repeat;
     position: absolute;
     top: 50%;
     transform: translateY(-7px);
@@ -336,7 +420,7 @@ function judoSpin(element, options) {
     /* Create left arrow */
     const leftArrow = document.createElement('span');
     leftArrow.textContent = '';
-    const leftIcon = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-caret-left-filled' width='14' height='14' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'%3E%3C/path%3E%3Cpath d='M13.883 5.007l.058 -.005h.118l.058 .005l.06 .009l.052 .01l.108 .032l.067 .027l.132 .07l.09 .065l.081 .073l.083 .094l.054 .077l.054 .096l.017 .036l.027 .067l.032 .108l.01 .053l.01 .06l.004 .057l.002 .059v12c0 .852 -.986 1.297 -1.623 .783l-.084 -.076l-6 -6a1 1 0 0 1 -.083 -1.32l.083 -.094l6 -6l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01z' stroke-width='0' fill='currentColor'%3E%3C/path%3E%3C/svg%3E")`;
+    const leftIcon = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'%3E%3C/path%3E%3Cpath d='M13.883 5.007l.058 -.005h.118l.058 .005l.06 .009l.052 .01l.108 .032l.067 .027l.132 .07l.09 .065l.081 .073l.083 .094l.054 .077l.054 .096l.017 .036l.027 .067l.032 .108l.01 .053l.01 .06l.004 .057l.002 .059v12c0 .852 -.986 1.297 -1.623 .783l-.084 -.076l-6 -6a1 1 0 0 1 -.083 -1.32l.083 -.094l6 -6l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01z' stroke-width='0' fill='currentColor'%3E%3C/path%3E%3C/svg%3E")`;
     leftArrow.style.cssText = `
     -webkit-mask-image: ${leftIcon};
     mask-image:${leftIcon};
@@ -346,7 +430,7 @@ function judoSpin(element, options) {
     /* Create right arrow */
     const rightArrow = document.createElement('span');
     rightArrow.textContent = '';
-    const rightIcon = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-caret-right-filled' width='14' height='14' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'%3E%3C/path%3E%3Cpath d='M9 6c0 -.852 .986 -1.297 1.623 -.783l.084 .076l6 6a1 1 0 0 1 .083 1.32l-.083 .094l-6 6l-.094 .083l-.077 .054l-.096 .054l-.036 .017l-.067 .027l-.108 .032l-.053 .01l-.06 .01l-.057 .004l-.059 .002l-.059 -.002l-.058 -.005l-.06 -.009l-.052 -.01l-.108 -.032l-.067 -.027l-.132 -.07l-.09 -.065l-.081 -.073l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057l-.002 -12.059z' stroke-width='0' fill='currentColor'%3E%3C/path%3E%3C/svg%3E")`;
+    const rightIcon = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'%3E%3C/path%3E%3Cpath d='M9 6c0 -.852 .986 -1.297 1.623 -.783l.084 .076l6 6a1 1 0 0 1 .083 1.32l-.083 .094l-6 6l-.094 .083l-.077 .054l-.096 .054l-.036 .017l-.067 .027l-.108 .032l-.053 .01l-.06 .01l-.057 .004l-.059 .002l-.059 -.002l-.058 -.005l-.06 -.009l-.052 -.01l-.108 -.032l-.067 -.027l-.132 -.07l-.09 -.065l-.081 -.073l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057l-.002 -12.059z' stroke-width='0' fill='currentColor'%3E%3C/path%3E%3C/svg%3E")`;
     rightArrow.style.cssText = `
     -webkit-mask-image: ${rightIcon};
     mask-image:${rightIcon};
@@ -359,65 +443,10 @@ function judoSpin(element, options) {
     judoDraggable.appendChild(rightArrow);
     judoScroller.appendChild(judoDraggable);
     judoSpinWrapper.appendChild(judoScroller);
-    
-    /* Flag to track if the button is being dragged */
-    let dragging = false;
 
     /* Add event listeners to the draggable button for dragging */
     judoDraggable.addEventListener('mousedown', handleDragStart);
     judoDraggable.addEventListener('touchstart', handleDragStart);
-
-    /* Handle drag start event */
-    function handleDragStart(event) {
-      event.preventDefault();
-      dragging = true;
-      
-      document.addEventListener('mousemove', handleDragMove);
-      document.addEventListener('touchmove', handleDragMove);
-    }
-
-    /* Handle drag move event */
-    function handleDragMove(event) {
-      if (dragging) {
-        const judoScrollerRect = judoScroller.getBoundingClientRect();
-        const buttonWidth = judoDraggable.offsetWidth;
-        const minScrollPos = 0;
-        const maxScrollPos = judoScroller.offsetWidth - buttonWidth;
-
-        let scrollPos;
-
-        if (event.type === 'touchmove') {
-          scrollPos = event.touches[0].clientX - judoScrollerRect.left - buttonWidth / 2;
-        } else {
-          scrollPos = event.clientX - judoScrollerRect.left - buttonWidth / 2;
-        }
-
-        /* Ensure the scroll position stays within bounds */
-        scrollPos = Math.max(minScrollPos, Math.min(maxScrollPos, scrollPos));
-
-        /* Update the draggable button position */
-        judoDraggable.style.left = `${scrollPos}px`;
-
-        /* Calculate the current angle based on the scroll position */
-        const maxRotation = 360; // 360 degrees for a full rotation
-        const anglePerScroll = maxRotation / maxScrollPos;
-        currentAngle = Math.floor(scrollPos * anglePerScroll);
-
-        /* Adjust currentAngle to be within the range of 0 to 359 degrees */
-        currentAngle = (currentAngle % maxRotation + maxRotation) % maxRotation;
-
-        /* Show the corresponding image based on the current angle */
-        showImageForAngle(currentAngle);
-      }
-    }
-
-    /* Handle drag end event */
-    function handleDragEnd() {
-      dragging = false;
-      /* Remove the mousemove and touchmove event listeners */
-      document.removeEventListener('mousemove', handleDragMove);
-      document.removeEventListener('touchmove', handleDragMove);
-    }
 
     /* Add event listeners for mouseup and touchend events */
     document.addEventListener('mouseup', handleDragEnd);
@@ -426,6 +455,7 @@ function judoSpin(element, options) {
 
   if (options.enableDragHandle) {
     draggableScroller();
+    setDraggableButton();
   }
 }
 

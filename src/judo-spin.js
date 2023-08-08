@@ -1,7 +1,7 @@
 function judoSpin(element, options) {
 
   var defaults = {
-    currImg: 1,
+    currImage: 1,
     images: [],
     enableDragHandle: false
   };
