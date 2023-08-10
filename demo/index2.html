@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judo Spin - Rotate images 360 degrees.</title>
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header>
+
+        <h1>judoSpin</h1>
+        <h2>360° degrees image spinner and rotation using JavaScript. </h2>
+
+        <nav class="judo-spin-demos">
+          <a href="index.html">Demo 1</a>
+          <a class="current-demo" href="index2.html">Demo 2</a>
+          <a href="index3.html">Demo 3</a>
+          <a href="index4.html">Demo 4</a>
+        </nav>
+
+      </header>
+      
+      <div class="judo-spin-demo" data-judo-spin='{ "currImage": 7 }'>
+        <img src="images/01.png" alt="Image 01">
+        <img src="images/02.png" alt="Image 02">
+        <img src="images/03.png" alt="Image 03">
+        <img src="images/04.png" alt="Image 04">
+        <img src="images/05.png" alt="Image 05">
+        <img src="images/06.png" alt="Image 06">
+        <img src="images/07.png" alt="Image 07">
+        <img src="images/08.png" alt="Image 08">
+        <img src="images/09.png" alt="Image 09">
+        <img src="images/10.png" alt="Image 10">
+        <img src="images/11.png" alt="Image 11">
+        <img src="images/12.png" alt="Image 12">
+        <img src="images/13.png" alt="Image 13">
+        <img src="images/14.png" alt="Image 14">
+        <img src="images/15.png" alt="Image 15">
+        <img src="images/16.png" alt="Image 16">
+        <img src="images/17.png" alt="Image 17">
+        <img src="images/18.png" alt="Image 18">
+        <img src="images/19.png" alt="Image 19">
+        <img src="images/20.png" alt="Image 20">
+        <img src="images/21.png" alt="Image 21">
+        <img src="images/22.png" alt="Image 22">
+        <img src="images/23.png" alt="Image 23">
+        <img src="images/24.png" alt="Image 24">
+        <img src="images/25.png" alt="Image 25">
+        <img src="images/26.png" alt="Image 26">
+        <img src="images/27.png" alt="Image 27">
+        <img src="images/28.png" alt="Image 28">
+        <img src="images/29.png" alt="Image 29">
+        <img src="images/30.png" alt="Image 30">
+        <img src="images/31.png" alt="Image 31">
+        <img src="images/32.png" alt="Image 32">
+        <img src="images/33.png" alt="Image 33">
+        <img src="images/34.png" alt="Image 34">
+        <img src="images/35.png" alt="Image 35">
+        <img src="images/36.png" alt="Image 36">
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">HTML Code</div>
+          <div class="accordion-content hidden">
+            <p>Add this code anywhere in your markup.</p>
+            <div class="code-box">
+              <pre><code class="language-html">&lt;div data-judo-spin=&#39;{ &quot;currImage&quot;: 7 }&#39;&gt;
+  &lt;img src=&quot;images/01.png&quot; alt=&quot;Image 01&quot;&gt;
+  &lt;img src=&quot;images/02.png&quot; alt=&quot;Image 02&quot;&gt;
+  &lt;img src=&quot;images/03.png&quot; alt=&quot;Image 03&quot;&gt;
+  &lt;img src=&quot;images/04.png&quot; alt=&quot;Image 04&quot;&gt;
+  &lt;img src=&quot;images/05.png&quot; alt=&quot;Image 05&quot;&gt;
+  &lt;img src=&quot;images/06.png&quot; alt=&quot;Image 06&quot;&gt;
+  &lt;img src=&quot;images/07.png&quot; alt=&quot;Image 07&quot;&gt;
+  &lt;img src=&quot;images/08.png&quot; alt=&quot;Image 08&quot;&gt;
+  &lt;img src=&quot;images/09.png&quot; alt=&quot;Image 09&quot;&gt;
+  &lt;img src=&quot;images/10.png&quot; alt=&quot;Image 10&quot;&gt;
+  &lt;img src=&quot;images/11.png&quot; alt=&quot;Image 11&quot;&gt;
+  &lt;img src=&quot;images/12.png&quot; alt=&quot;Image 12&quot;&gt;
+  &lt;img src=&quot;images/13.png&quot; alt=&quot;Image 13&quot;&gt;
+  &lt;img src=&quot;images/14.png&quot; alt=&quot;Image 14&quot;&gt;
+  &lt;img src=&quot;images/15.png&quot; alt=&quot;Image 15&quot;&gt;
+  &lt;img src=&quot;images/16.png&quot; alt=&quot;Image 16&quot;&gt;
+  &lt;img src=&quot;images/17.png&quot; alt=&quot;Image 17&quot;&gt;
+  &lt;img src=&quot;images/18.png&quot; alt=&quot;Image 18&quot;&gt;
+  &lt;img src=&quot;images/19.png&quot; alt=&quot;Image 19&quot;&gt;
+  &lt;img src=&quot;images/20.png&quot; alt=&quot;Image 20&quot;&gt;
+  &lt;img src=&quot;images/21.png&quot; alt=&quot;Image 21&quot;&gt;
+  &lt;img src=&quot;images/22.png&quot; alt=&quot;Image 22&quot;&gt;
+  &lt;img src=&quot;images/23.png&quot; alt=&quot;Image 23&quot;&gt;
+  &lt;img src=&quot;images/24.png&quot; alt=&quot;Image 24&quot;&gt;
+  &lt;img src=&quot;images/25.png&quot; alt=&quot;Image 25&quot;&gt;
+  &lt;img src=&quot;images/26.png&quot; alt=&quot;Image 26&quot;&gt;
+  &lt;img src=&quot;images/27.png&quot; alt=&quot;Image 27&quot;&gt;
+  &lt;img src=&quot;images/28.png&quot; alt=&quot;Image 28&quot;&gt;
+  &lt;img src=&quot;images/29.png&quot; alt=&quot;Image 29&quot;&gt;
+  &lt;img src=&quot;images/30.png&quot; alt=&quot;Image 30&quot;&gt;
+  &lt;img src=&quot;images/31.png&quot; alt=&quot;Image 31&quot;&gt;
+  &lt;img src=&quot;images/32.png&quot; alt=&quot;Image 32&quot;&gt;
+  &lt;img src=&quot;images/33.png&quot; alt=&quot;Image 33&quot;&gt;
+  &lt;img src=&quot;images/34.png&quot; alt=&quot;Image 34&quot;&gt;
+  &lt;img src=&quot;images/35.png&quot; alt=&quot;Image 35&quot;&gt;
+  &lt;img src=&quot;images/36.png&quot; alt=&quot;Image 36&quot;&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">Include <pre>judo-spin.min.js</pre></div>
+          <div class="accordion-content hidden">
+            <p>Add this code before the <mark>&lt;/body&gt;</mark> tag in your markup.</p>
+            <div class="code-box">
+              <pre><code class="language-html">&lt;script src=&quot;js/judo-spin.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+      <br><br><br><br><br><br><br><br>
+      
+    </div>
+
+    <script src="js/prism.js"></script>
+    <script>Prism.highlightAll();</script>
+    <script src="js/judo-spin.min.js"></script>
+    <script src="js/script.js" data-manual></script>
+  </body>
+
+</html>

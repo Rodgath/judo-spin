@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judo Spin - Rotate images 360 degrees.</title>
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header>
+
+        <h1>judoSpin</h1>
+        <h2>360° degrees image spinner and rotation using JavaScript. </h2>
+
+        <nav class="judo-spin-demos">
+          <a href="index.html">Demo 1</a>
+          <a href="index2.html">Demo 2</a>
+          <a href="index3.html">Demo 3</a>
+          <a class="current-demo" href="index4.html">Demo 4</a>
+        </nav>
+
+      </header>
+
+      <div class="image-rotation-box judo-spin-demo"></div>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">HTML Code</div>
+          <div class="accordion-content hidden">
+            <p>Add this code anywhere in your markup.</p>
+            <div class="code-box">
+              <pre><code class="language-html">&lt;div class=&quot;image-rotation-box&quot;&gt;&lt;/div&gt;</code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">JavaScript Code</div>
+          <div class="accordion-content hidden">
+            <p>Add this code before the <mark>&lt;/body&gt;</mark> tag in your markup.</p>
+            <div class="code-box">
+              <pre><code class="language-javascript">&lt;script&gt;
+  document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+    judoSpin(&#39;.image-rotation-box&#39;, { 
+      currImage: 35, 
+      images: [
+        { &quot;src&quot;: &quot;images/01.png&quot;, &quot;title&quot;: &quot;Image 01&quot; },
+        { &quot;src&quot;: &quot;images/02.png&quot;, &quot;title&quot;: &quot;Image 02&quot; },
+        { &quot;src&quot;: &quot;images/03.png&quot;, &quot;title&quot;: &quot;Image 03&quot; },
+        { &quot;src&quot;: &quot;images/04.png&quot;, &quot;title&quot;: &quot;Image 04&quot; },
+        { &quot;src&quot;: &quot;images/05.png&quot;, &quot;title&quot;: &quot;Image 05&quot; },
+        { &quot;src&quot;: &quot;images/06.png&quot;, &quot;title&quot;: &quot;Image 06&quot; },
+        { &quot;src&quot;: &quot;images/07.png&quot;, &quot;title&quot;: &quot;Image 07&quot; },
+        { &quot;src&quot;: &quot;images/08.png&quot;, &quot;title&quot;: &quot;Image 08&quot; },
+        { &quot;src&quot;: &quot;images/09.png&quot;, &quot;title&quot;: &quot;Image 09&quot; },
+        { &quot;src&quot;: &quot;images/10.png&quot;, &quot;title&quot;: &quot;Image 10&quot; },
+        { &quot;src&quot;: &quot;images/11.png&quot;, &quot;title&quot;: &quot;Image 11&quot; },
+        { &quot;src&quot;: &quot;images/12.png&quot;, &quot;title&quot;: &quot;Image 12&quot; },
+        { &quot;src&quot;: &quot;images/13.png&quot;, &quot;title&quot;: &quot;Image 13&quot; },
+        { &quot;src&quot;: &quot;images/14.png&quot;, &quot;title&quot;: &quot;Image 14&quot; },
+        { &quot;src&quot;: &quot;images/15.png&quot;, &quot;title&quot;: &quot;Image 15&quot; },
+        { &quot;src&quot;: &quot;images/16.png&quot;, &quot;title&quot;: &quot;Image 16&quot; },
+        { &quot;src&quot;: &quot;images/17.png&quot;, &quot;title&quot;: &quot;Image 17&quot; },
+        { &quot;src&quot;: &quot;images/18.png&quot;, &quot;title&quot;: &quot;Image 18&quot; },
+        { &quot;src&quot;: &quot;images/19.png&quot;, &quot;title&quot;: &quot;Image 19&quot; },
+        { &quot;src&quot;: &quot;images/20.png&quot;, &quot;title&quot;: &quot;Image 20&quot; },
+        { &quot;src&quot;: &quot;images/21.png&quot;, &quot;title&quot;: &quot;Image 21&quot; },
+        { &quot;src&quot;: &quot;images/22.png&quot;, &quot;title&quot;: &quot;Image 22&quot; },
+        { &quot;src&quot;: &quot;images/23.png&quot;, &quot;title&quot;: &quot;Image 23&quot; },
+        { &quot;src&quot;: &quot;images/24.png&quot;, &quot;title&quot;: &quot;Image 24&quot; },
+        { &quot;src&quot;: &quot;images/25.png&quot;, &quot;title&quot;: &quot;Image 25&quot; },
+        { &quot;src&quot;: &quot;images/26.png&quot;, &quot;title&quot;: &quot;Image 26&quot; },
+        { &quot;src&quot;: &quot;images/27.png&quot;, &quot;title&quot;: &quot;Image 27&quot; },
+        { &quot;src&quot;: &quot;images/28.png&quot;, &quot;title&quot;: &quot;Image 28&quot; },
+        { &quot;src&quot;: &quot;images/29.png&quot;, &quot;title&quot;: &quot;Image 29&quot; },
+        { &quot;src&quot;: &quot;images/30.png&quot;, &quot;title&quot;: &quot;Image 30&quot; },
+        { &quot;src&quot;: &quot;images/31.png&quot;, &quot;title&quot;: &quot;Image 31&quot; },
+        { &quot;src&quot;: &quot;images/32.png&quot;, &quot;title&quot;: &quot;Image 32&quot; },
+        { &quot;src&quot;: &quot;images/33.png&quot;, &quot;title&quot;: &quot;Image 33&quot; },
+        { &quot;src&quot;: &quot;images/34.png&quot;, &quot;title&quot;: &quot;Image 34&quot; },
+        { &quot;src&quot;: &quot;images/35.png&quot;, &quot;title&quot;: &quot;Image 35&quot; },
+        { &quot;src&quot;: &quot;images/36.png&quot;, &quot;title&quot;: &quot;Image 36&quot; }
+      ]
+    });
+  });
+&lt;/script&gt;</code></pre>
+            </div>
+
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">Include <pre>judo-spin.min.js</pre></div>
+          <div class="accordion-content hidden">
+            <p>Add this code before the <mark>&lt;/body&gt;</mark> tag in your markup.</p>
+            <div class="code-box">
+              <pre><code class="language-html">&lt;script src=&quot;js/judo-spin.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+      <br><br><br><br><br><br><br><br>
+
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        judoSpin('.image-rotation-box', { 
+          currImage: 35, 
+          images: [
+            { "src": "images/01.png", "title": "Image 01" },
+            { "src": "images/02.png", "title": "Image 02" },
+            { "src": "images/03.png", "title": "Image 03" },
+            { "src": "images/04.png", "title": "Image 04" },
+            { "src": "images/05.png", "title": "Image 05" },
+            { "src": "images/06.png", "title": "Image 06" },
+            { "src": "images/07.png", "title": "Image 07" },
+            { "src": "images/08.png", "title": "Image 08" },
+            { "src": "images/09.png", "title": "Image 09" },
+            { "src": "images/10.png", "title": "Image 10" },
+            { "src": "images/11.png", "title": "Image 11" },
+            { "src": "images/12.png", "title": "Image 12" },
+            { "src": "images/13.png", "title": "Image 13" },
+            { "src": "images/14.png", "title": "Image 14" },
+            { "src": "images/15.png", "title": "Image 15" },
+            { "src": "images/16.png", "title": "Image 16" },
+            { "src": "images/17.png", "title": "Image 17" },
+            { "src": "images/18.png", "title": "Image 18" },
+            { "src": "images/19.png", "title": "Image 19" },
+            { "src": "images/20.png", "title": "Image 20" },
+            { "src": "images/21.png", "title": "Image 21" },
+            { "src": "images/22.png", "title": "Image 22" },
+            { "src": "images/23.png", "title": "Image 23" },
+            { "src": "images/24.png", "title": "Image 24" },
+            { "src": "images/25.png", "title": "Image 25" },
+            { "src": "images/26.png", "title": "Image 26" },
+            { "src": "images/27.png", "title": "Image 27" },
+            { "src": "images/28.png", "title": "Image 28" },
+            { "src": "images/29.png", "title": "Image 29" },
+            { "src": "images/30.png", "title": "Image 30" },
+            { "src": "images/31.png", "title": "Image 31" },
+            { "src": "images/32.png", "title": "Image 32" },
+            { "src": "images/33.png", "title": "Image 33" },
+            { "src": "images/34.png", "title": "Image 34" },
+            { "src": "images/35.png", "title": "Image 35" },
+            { "src": "images/36.png", "title": "Image 36" }
+          ]
+        });
+      });
+    </script>
+
+    <script src="js/prism.js"></script>
+    <script>Prism.highlightAll();</script>
+    <script src="js/judo-spin.min.js"></script>
+    <script src="js/script.js" data-manual></script>
+  </body>
+
+</html>
