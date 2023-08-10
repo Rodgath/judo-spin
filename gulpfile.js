@@ -13,9 +13,8 @@ const folderToCopy = 'demo';
 /* Custom Gulp task to copy folder between branches */
 const copyFolder = () => {
   return shell.task([
-    `git checkout ${sourceBranch}`,
-    `git checkout ${sourceBranch} -- ${folderToCopy}`,
     `git checkout ${targetBranch}`,
+    `git checkout ${sourceBranch} -- ${folderToCopy}`,
     `git add ${folderToCopy}`,
     `git commit -m "Copy '${folderToCopy}' folder from ${sourceBranch}"`,
     `git push origin ${targetBranch}`,
