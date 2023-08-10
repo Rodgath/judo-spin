@@ -4,6 +4,25 @@ const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const header = require('gulp-header');
 const pkg = require('./package.json');
+const shell = require('gulp-shell');
+
+const sourceBranch = 'main';
+const targetBranch = 'gh-pages';
+const folderToCopy = 'demo';
+
+/* Custom Gulp task to copy folder between branches */
+const copyFolder = () => {
+  return shell.task([
+    `git checkout ${sourceBranch}`,
+    `git checkout ${sourceBranch} -- ${folderToCopy}`,
+    `git checkout ${targetBranch}`,
+    // `git add ${folderToCopy}`,
+    // `git commit -m "Copy '${folderToCopy}' folder from ${sourceBranch}"`,
+    // `git push origin ${targetBranch}`
+  ]);
+}
+
+task('copy:folder', copyFolder());
 
 /* Set banner for dist files */
 const setBanner = () => {
