@@ -3,14 +3,14 @@ const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const header = require('gulp-header');
-const pkg = require('./package.json');
 const shell = require('gulp-shell');
+const pkg = require('./package.json');
 
 const sourceBranch = 'main';
 const targetBranch = 'gh-pages';
 const folderToCopy = 'demo';
 
-/* Custom Gulp task to copy folder between branches */
+/* Copy folder between branches */
 const copyFolder = () => {
   return shell.task([
     `git checkout ${targetBranch}`,
@@ -21,8 +21,6 @@ const copyFolder = () => {
     `git checkout ${sourceBranch}`
   ]);
 }
-
-task('copy:demo', copyFolder());
 
 /* Set banner for dist files */
 const setBanner = () => {
@@ -49,9 +47,6 @@ const setBanner = () => {
   .pipe(dest('./dist'))
 }
 
-/* Set banner task */
-task('set:banner', () => setBanner());
-
 const compressJs = () => {
   return src('src/*.js')
         .pipe(dest('./demo/js')) // Send original script file to /demo
@@ -73,10 +68,11 @@ const buildTask = () => {
   return series(compressJs, setBanner)
 }
 
+/* Tasks */
+task('copy:demo', copyFolder());
+task('set:banner', () => setBanner());
 task('compress:js', compressJs);
-
 task('watch', watchTask);
-
 task('build', buildTask);
 
 exports.default = buildTask();
