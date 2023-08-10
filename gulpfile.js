@@ -16,13 +16,14 @@ const copyFolder = () => {
     `git checkout ${sourceBranch}`,
     `git checkout ${sourceBranch} -- ${folderToCopy}`,
     `git checkout ${targetBranch}`,
-    // `git add ${folderToCopy}`,
-    // `git commit -m "Copy '${folderToCopy}' folder from ${sourceBranch}"`,
-    // `git push origin ${targetBranch}`
+    `git add ${folderToCopy}`,
+    `git commit -m "Copy '${folderToCopy}' folder from ${sourceBranch}"`,
+    `git push origin ${targetBranch}`,
+    `git checkout ${sourceBranch}`
   ]);
 }
 
-task('copy:folder', copyFolder());
+task('copy:demo', copyFolder());
 
 /* Set banner for dist files */
 const setBanner = () => {
