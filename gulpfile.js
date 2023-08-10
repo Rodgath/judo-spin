@@ -73,6 +73,6 @@ task('copy:demo', copyFolder());
 task('set:banner', () => setBanner());
 task('compress:js', compressJs);
 task('watch', watchTask);
-task('build', buildTask);
+task('build', buildTask());
 
 exports.default = buildTask();
