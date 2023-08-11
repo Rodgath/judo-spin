@@ -158,11 +158,11 @@ document.addEventListener('DOMContentLoaded', function() {
 ---
 # Options 
 
-Name | Type | Default | Optional | Description
-:--- | :--- | :------ | :------- | :----------
-`currImage` | _number_ | 1 | yes | The default image when judo spin loads. Range is _1 - 36_.
-`images` | _array_ | - |  yes | Array of images as JSON object.
-`enableDragHandle` | _boolean_ | false |  yes | Whether to show the drag handler scroller.
+Name | Type | Default | Description
+:--- | :--- | :------ | :----------
+`currImage` | _number_ | 1 | The default image when judo spin loads. Range is _1 - 36_.
+`images` | _array_ | - | Array of images as JSON object.
+`enableDragHandle` | _boolean_ | false | Whether to show the drag handler scroller.
 
 ## License
 judoSpin is an open-source project released under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
