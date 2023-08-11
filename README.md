@@ -22,8 +22,8 @@
 
 **[A]** Download 
 
-+ [judo-spin.min.js](https://unpkg.com/judo-spin@1.0.0/dist/js/judo-spin.min.js) - Minified
-+ [judo-spin.js](https://unpkg.com/judo-spin@1.0.0/dist/js/judo-spin.min.js) - Unminified
++ [judo-spin.min.js](https://unpkg.com/judo-spin@latest/dist/js/judo-spin.min.js) - Minified
++ [judo-spin.js](https://unpkg.com/judo-spin@latest/dist/js/judo-spin.min.js) - Unminified
 
 **[B]** Package
 
@@ -62,7 +62,7 @@ Your HTML code of upto 36 images
 ```
 + Using CDN file. _(Optional)_
 ```html
-<script src="https://cdn.jsdelivr.net/npm/judo-spin@1.0.0/dist/js/judo-spin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/judo-spin@latest/dist/js/judo-spin.min.js"></script>
 ```
 
 ##### <div align="right"><a href="#top">&uarr; TOP &uarr;</a></div>
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 + Using CDN file. _(Optional)_
 ```html
-<script src="https://cdn.jsdelivr.net/npm/judo-spin@1.0.0/dist/js/judo-spin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/judo-spin@latest/dist/js/judo-spin.min.js"></script>
 ```
 
 ##### <div align="right"><a href="#top">&uarr; TOP &uarr;</a></div>
