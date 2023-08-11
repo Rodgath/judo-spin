@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
 Name | Type | Default | Description
 :--- | :--- | :------ | :----------
 `currImage` | _number_ | 1 | The default image when judo spin loads. Range is _1 - 36_.
-`images` | _array_ | - | Array of images as JSON object.
+`images` | _array_|_object_ | - | Array of images as JSON object or DOM images.
 `enableDragHandle` | _boolean_ | false | Whether to show the drag handler scroller.
 
 ## License
