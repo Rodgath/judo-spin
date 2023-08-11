@@ -32,7 +32,7 @@ const setBanner = () => {
     ` * @link        ${pkg.homepage}`,
     ` * @author      ${pkg.author.name}, ${pkg.author.web}`,
     ` * @version     v${pkg.version}`,
-    ` * @created     Jul 22, 2023`,
+    ` * @created     Jul 20, 2023`,
     ` * @updated     Aug 08, ${new Date().getFullYear()}`,
     ` * @copyright   Copyright (C) 2023-${new Date().getFullYear()}, ${pkg.author.name}`,
     ` * @license     ${pkg.license}`,
