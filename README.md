@@ -34,7 +34,7 @@
 `git clone https://github.com/Rodgath/judo-spin.git`
 
 
-# Implementation:
+# Implementation
 There are several methods you can use to add Judo Spin into your project.
 
 ## Method 1
