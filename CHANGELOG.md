@@ -1,4 +1,7 @@
-
+###### v1.0.3 - Aug 15, 2023
+```
+= Update README
+```
 ###### v1.0.2 - Aug 8, 2023
 ```
 = Fix: Deduct 1 from 'initialImageIndex'

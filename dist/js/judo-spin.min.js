@@ -4,9 +4,9 @@
  * @description 360° degrees image spinner using JavaScript.
  * @link        https://github.com/Rodgath/judo-spin
  * @author      Rodgath, https://Rodgath.com
- * @version     v1.0.2
+ * @version     v1.0.3
  * @created     Jul 20, 2023
- * @updated     Aug 08, 2023
+ * @updated     Aug 15, 2023
  * @copyright   Copyright (C) 2023-2023, Rodgath
  * @license     MIT
  * @licenseMIT  https://github.com/Rodgath/judo-spin/blob/main/LICENSE
