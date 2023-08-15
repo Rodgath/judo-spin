@@ -9,6 +9,49 @@ body {
   overflow-x : hidden;
 }
 
+.top-bar {
+  position          : relative;
+  text-transform    : uppercase;
+  font-family       : 'Arial Narrow', Arial, sans-serif;
+  line-height       : 24px;
+  font-size         : 11px;
+  background        : #404040;
+  height            : 30px;
+  display           : flex;
+  align-items       : center;
+  justify-content   : space-between;
+  -moz-box-shadow   : 1px 0px 2px #505050;
+  -webkit-box-shadow: 1px 0px 2px #505050;
+  box-shadow        : 1px 0px 2px #505050;
+}
+
+.top-bar a {
+  text-decoration: none;
+  padding        : 0px 10px;
+  letter-spacing : 1px;
+  color          : #ddd;
+  display        : flex;
+  align-items    : center;
+  float          : left;
+}
+
+.top-bar a:hover {
+  color: #fff;
+}
+
+.top-bar svg {
+  margin-right: 4px;
+}
+
+.top-bar span.right {
+  float: right;
+}
+
+.top-bar span.right a {
+  float  : none;
+  display: inline;
+}
+
 .container>header {
   margin    : 10px;
   padding   : 20px 10px 10px 10px;
@@ -17,7 +60,18 @@ body {
   text-align: center;
 }
 
+.container .logo {
+  max-width: 200px;
+  margin   : 0 auto;
+}
+
+.container .logo img {
+  max-width: 100%;
+  height   : auto
+}
+
 .container>header h1 {
+  display    : none;
   position   : relative;
   line-height: 32px;
   font-size  : 32px;
@@ -125,8 +179,8 @@ body {
   width              : 20px;
   height             : 20px;
   background-color   : rgb(139, 139, 139);
-  -webkit-mask-image : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-chevron-down' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6 9l6 6l6 -6' /%3E%3C/svg%3E ");
-  mask-image         : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-chevron-down' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6 9l6 6l6 -6' /%3E%3C/svg%3E ");
+  -webkit-mask-image : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6 9l6 6l6 -6' /%3E%3C/svg%3E ");
+  mask-image         : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6 9l6 6l6 -6' /%3E%3C/svg%3E ");
   -webkit-mask-repeat: no-repeat;
   mask-repeat        : no-repeat;
   transition         : transform 0.3s ease;
@@ -149,7 +203,7 @@ body {
 .accordion-item .accordion-content {
   padding : 16px;
   overflow: hidden;
-  color: #565656
+  color   : #565656
 }
 
 .accordion-item .accordion-content.hidden {
@@ -163,12 +217,12 @@ body {
 }
 
 .accordion-item mark {
-  font-size: 12px;
-  padding: 2px 3px;
-  color: rgb(80, 80, 34);
+  font-size       : 12px;
+  padding         : 2px 3px;
+  color           : rgb(80, 80, 34);
   background-color: rgb(235, 235, 74);
-  border: 1px solid rgb(218, 218, 90);
-  border-radius: 3px;
+  border          : 1px solid rgb(218, 218, 90);
+  border-radius   : 3px;
 }
 
 /* Code box styles */
