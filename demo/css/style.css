@@ -9,6 +9,49 @@ body {
   overflow-x : hidden;
 }
 
+.top-bar {
+  position          : relative;
+  text-transform    : uppercase;
+  font-family       : 'Arial Narrow', Arial, sans-serif;
+  line-height       : 24px;
+  font-size         : 11px;
+  background        : #404040;
+  height            : 30px;
+  display           : flex;
+  align-items       : center;
+  justify-content   : space-between;
+  -moz-box-shadow   : 1px 0px 2px #505050;
+  -webkit-box-shadow: 1px 0px 2px #505050;
+  box-shadow        : 1px 0px 2px #505050;
+}
+
+.top-bar a {
+  text-decoration: none;
+  padding        : 0px 10px;
+  letter-spacing : 1px;
+  color          : #ddd;
+  display        : flex;
+  align-items    : center;
+  float          : left;
+}
+
+.top-bar a:hover {
+  color: #fff;
+}
+
+.top-bar svg {
+  margin-right: 3px;
+}
+
+.top-bar span.right {
+  float: right;
+}
+
+.top-bar span.right a {
+  float  : none;
+  display: inline;
+}
+
 .container>header {
   margin    : 10px;
   padding   : 20px 10px 10px 10px;
@@ -149,7 +192,7 @@ body {
 .accordion-item .accordion-content {
   padding : 16px;
   overflow: hidden;
-  color: #565656
+  color   : #565656
 }
 
 .accordion-item .accordion-content.hidden {
@@ -163,12 +206,12 @@ body {
 }
 
 .accordion-item mark {
-  font-size: 12px;
-  padding: 2px 3px;
-  color: rgb(80, 80, 34);
+  font-size       : 12px;
+  padding         : 2px 3px;
+  color           : rgb(80, 80, 34);
   background-color: rgb(235, 235, 74);
-  border: 1px solid rgb(218, 218, 90);
-  border-radius: 3px;
+  border          : 1px solid rgb(218, 218, 90);
+  border-radius   : 3px;
 }
 
 /* Code box styles */
