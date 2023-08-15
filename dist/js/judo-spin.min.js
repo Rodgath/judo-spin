@@ -5,7 +5,7 @@
  * @link        https://github.com/Rodgath/judo-spin
  * @author      Rodgath, https://Rodgath.com
  * @version     v1.0.2
- * @created     Jul 22, 2023
+ * @created     Jul 20, 2023
  * @updated     Aug 08, 2023
  * @copyright   Copyright (C) 2023-2023, Rodgath
  * @license     MIT
