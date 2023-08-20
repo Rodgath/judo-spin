@@ -36,10 +36,11 @@
 
 **[B]** Package
 
-+ Install with [npm](https://www.npmjs.com/package/judo-spin): `npm install judo-spin` 
 * Install with [yarn](https://yarnpkg.com/): `yarn add judo-spin`
 
-[![NPM](https://nodei.co/npm/judo-spin.png?downloads=true)](https://www.npmjs.com/package/judo-spin) 
+* Install with [npm](https://www.npmjs.com/package/judo-spin): `npm install judo-spin` 
+
+* [![NPM](https://nodei.co/npm/judo-spin.png?downloads=true)](https://www.npmjs.com/package/judo-spin) 
 
 **[C]** Get a local working copy of the development repository _(Optional)_ <br />
 `git clone https://github.com/Rodgath/judo-spin.git`
