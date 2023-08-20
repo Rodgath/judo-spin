@@ -8,18 +8,14 @@
 
 <br>
 
-<!-- 
-[![Version](https://badge.fury.io/gh/Rodgath%2Fjudo-spin.svg)](https://badge.fury.io/gh/Rodgath%2Fjudo-spin)
-[![GitHub Release](https://img.shields.io/github/release/Rodgath/judo-spin.svg?style=flat)]()   -->
+[![NPM Version](https://img.shields.io/npm/v/judo-spin.svg?color=00BAB8)]()
+[![NPM License](https://img.shields.io/npm/l/all-contributors.svg?color=00a7a6)](https://github.com/Rodgath/judo-spin/blob/master/LICENSE)
+[![NPM Downloads](https://img.shields.io/npm/dw/judo-spin.svg?color=009593)]() 
+![npm bundle size (version)](https://img.shields.io/bundlephobia/minzip/judo-spin/latest?color=008281)
 
-![GitHub issues](https://img.shields.io/github/issues-raw/Rodgath/judo-spin)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/Rodgath/judo-spin.svg?style=flat)]()
-[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)  
-
-[![NPM Version](https://img.shields.io/npm/v/judo-spin.svg?style=flat)]()
-[![NPM License](https://img.shields.io/npm/l/all-contributors.svg?style=flat)](https://github.com/Rodgath/judo-spin/blob/master/LICENSE)
-[![NPM Downloads](https://img.shields.io/npm/dw/judo-spin.svg?style=flat)]() 
-![npm bundle size (version)](https://img.shields.io/bundlephobia/minzip/judo-spin/latest)
+![GitHub issues](https://img.shields.io/github/issues-raw/Rodgath/judo-spin?color=37bf4c)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/Rodgath/judo-spin.svg?color=32ac44)]()
+[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=278635)](http://makeapullrequest.com) 
 
 # Table of Contents
 
