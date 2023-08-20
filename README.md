@@ -8,6 +8,19 @@
 
 <br>
 
+<!-- 
+[![Version](https://badge.fury.io/gh/Rodgath%2Fjudo-spin.svg)](https://badge.fury.io/gh/Rodgath%2Fjudo-spin)
+[![GitHub Release](https://img.shields.io/github/release/Rodgath/judo-spin.svg?style=flat)]()   -->
+
+![GitHub issues](https://img.shields.io/github/issues-raw/Rodgath/judo-spin)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/Rodgath/judo-spin.svg?style=flat)]()
+[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)  
+
+[![NPM Version](https://img.shields.io/npm/v/judo-spin.svg?style=flat)]()
+[![NPM License](https://img.shields.io/npm/l/all-contributors.svg?style=flat)](https://github.com/Rodgath/judo-spin/blob/master/LICENSE)
+[![NPM Downloads](https://img.shields.io/npm/dw/judo-spin.svg?style=flat)]() 
+![npm bundle size (version)](https://img.shields.io/bundlephobia/minzip/judo-spin/latest)
+
 # Table of Contents
 
 - [Installation](#installation)
@@ -29,6 +42,8 @@
 
 + Install with [npm](https://www.npmjs.com/package/judo-spin): `npm install judo-spin` 
 * Install with [yarn](https://yarnpkg.com/): `yarn add judo-spin`
+
+[![NPM](https://nodei.co/npm/judo-spin.png?downloads=true)](https://www.npmjs.com/package/judo-spin) 
 
 **[C]** Get a local working copy of the development repository _(Optional)_ <br />
 `git clone https://github.com/Rodgath/judo-spin.git`
