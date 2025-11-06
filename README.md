@@ -4,7 +4,9 @@
 
 360° degrees image spinner and rotation built with vanilla JavaScript.
 
-## [View Online Demo](https://rodgath.github.io/judo-spin/demo/)
+## [Click Here to View Live Demo](https://rodgath.github.io/judo-spin/demo/)
+
+[![Judo Spin GIF Image](https://rodgath.github.io/judo-spin/demo/images/judo-spin-image.gif)](https://rodgath.github.io/judo-spin/demo/)
 
 <br>
 
