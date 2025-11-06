@@ -6,7 +6,7 @@
 
 ## [Click Here to View Live Demo](https://rodgath.github.io/judo-spin/demo/)
 
-[![Judo Spin GIF Image](https://rodgath.github.io/judo-spin/demo/images/judo-spin-image.gif)](https://rodgath.github.io/judo-spin/demo/)
+[![Judo Spin GIF Image](demo/images/judo-spin-image.gif)](https://rodgath.github.io/judo-spin/demo/)
 
 <br>
 
