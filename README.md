@@ -2,7 +2,7 @@
 
 # Judo Spin
 
-360° degrees image spinner and rotation built with vanilla JavaScript. 
+360° degrees image spinner and rotation built with vanilla JavaScript.
 
 ## [View Online Demo](https://rodgath.github.io/judo-spin/demo/)
 
@@ -18,9 +18,9 @@
 - [Options](#options)
 - [License](#license)
 
-# Installation 
+# Installation
 
-**[A]** Download 
+**[A]** Download
 
 + [judo-spin.min.js](https://unpkg.com/judo-spin@latest/dist/js/judo-spin.min.js) - Minified
 + [judo-spin.js](https://unpkg.com/judo-spin@latest/dist/js/judo-spin.min.js) - Unminified
@@ -29,9 +29,9 @@
 
 * Install with [yarn](https://yarnpkg.com/): `yarn add judo-spin`
 
-* Install with [npm](https://www.npmjs.com/package/judo-spin): `npm install judo-spin` 
+* Install with [npm](https://www.npmjs.com/package/judo-spin): `npm install judo-spin`
 
-* [![NPM](https://nodei.co/npm/judo-spin.png?downloads=true)](https://www.npmjs.com/package/judo-spin) 
+* [![NPM](https://nodei.co/npm/judo-spin.png?downloads=true)](https://www.npmjs.com/package/judo-spin)
 
 **[C]** Get a local working copy of the development repository _(Optional)_ <br />
 `git clone https://github.com/Rodgath/judo-spin.git`
@@ -50,7 +50,7 @@ Your HTML code of upto 36 images
   <img src="images/car/02.png" alt="Image 02">
 
   <!-- More Images Here -->
-  
+
   <img src="images/car/35.png" alt="Image 35">
   <img src="images/car/36.png" alt="Image 36">
 </div>
@@ -81,14 +81,14 @@ Your HTML code of upto 36 images
   <img src="images/car/02.png" alt="Image 02">
 
   <!-- More Images Here -->
-  
+
   <img src="images/car/35.png" alt="Image 35">
   <img src="images/car/36.png" alt="Image 36">
 </div>
 ```
 
 #### Call the `judoSpin()` function with two arguments.
-...**1)** The element _'class'_ or _'id'_ holding the images 
+...**1)** The element _'class'_ or _'id'_ holding the images
 
 ...**2)** The _'options'_ object
 ```javascript
@@ -118,17 +118,17 @@ document.addEventListener('DOMContentLoaded', function() {
 ...**[A]** - Adding the JSON object inside the `data-judo-spin` attribute. [View Demo](https://rodgath.github.io/judo-spin/demo/index3.html)
 
 ```html
-<div data-judo-spin='{ 
+<div data-judo-spin='{
     "currImage": 13,
     "images": [
       { "src": "images/car/01.png", "title": "Image 01" },
       { "src": "images/car/02.png", "title": "Image 02" },
-      
+
       // More Images Here
 
       { "src": "images/car/35.png", "title": "Image 35" },
       { "src": "images/car/36.png", "title": "Image 36" }
-    ] 
+    ]
   }'></div>
 ```
 
@@ -143,11 +143,11 @@ JavaScript code
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
    judoSpin('.image-rotation-box', {
-      currImage: 22, 
+      currImage: 22,
       images: [
         { "src": "images/car/01.png", "title": "Image 01" },
         { "src": "images/car/02.png", "title": "Image 02" },
-        
+
         // More Images Here
 
         { "src": "images/car/35.png", "title": "Image 35" },
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ##### <div align="right"><a href="#top">&uarr; TOP &uarr;</a></div>
 
 ---
-# Options 
+# Options
 
 Name | Type | Default | Description
 :--- | :--- | :------ | :----------
